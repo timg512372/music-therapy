@@ -32,8 +32,8 @@ app.prepare().then(() => {
         return handler(req, res);
     });
 
-    server.listen(3001, err => {
+    server.listen(3004, err => {
         if (err) throw err;
-        console.log('Ready on http://localhost:3001 (with a custom server)');
+        console.log('Ready on http://localhost:3004 (with a custom server)');
     });
 });

@@ -274,7 +274,7 @@ class LandingPage extends Component {
                                                 letterSpacing: '-0.05em'
                                             }}
                                         >
-                                            WE MAKE <br /> HANDS
+                                            MUSIC TO <br /> HEAL
                                         </div>
                                     </div>
                                 </Transition>
