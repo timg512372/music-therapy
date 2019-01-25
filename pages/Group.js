@@ -147,10 +147,10 @@ class Group extends Component {
             <div style={{ margin: '0% 15% 0% 15%' }}>
                 <NextSeo
                     config={{
-                        title: 'Our Group | Sage Prosthetics',
-                        twitter: { title: 'Our Group | Sage Prosthetics' },
+                        title: 'Our Group | Music Therapy',
+                        twitter: { title: 'Our Group | Music Therapy' },
                         openGraph: {
-                            title: 'Our Group | Sage Prosthetics'
+                            title: 'Our Group | Music Therapy'
                         }
                     }}
                 />

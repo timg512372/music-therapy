@@ -15,7 +15,7 @@ const handler = routes.getRequestHandler(app);
 const firebase = admin.initializeApp(
     {
         credential: admin.credential.cert(serviceAccount),
-        databaseURL: 'https://sage-prosthetics.firebaseio.com'
+        databaseURL: 'https://music-therapy-c96cc.firebaseio.com'
     },
     'server'
 );

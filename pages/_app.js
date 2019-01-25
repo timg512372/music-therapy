@@ -14,24 +14,24 @@ import * as types from '../redux/types';
 if (!firebase.apps.length) {
     //console.log('initializing firebase');
     firebase.initializeApp({
-        apiKey: 'AIzaSyBn97XtxibfzEfqvY9-xUdJ26xHT7wSIg0',
-        authDomain: 'sage-prosthetics.firebaseapp.com',
-        databaseURL: 'https://sage-prosthetics.firebaseio.com',
-        projectId: 'sage-prosthetics',
-        storageBucket: 'sage-prosthetics.appspot.com',
-        messagingSenderId: '62889057271'
+        apiKey: 'AIzaSyDUgDq171aHYxrL11LksOAz4UY5kZfUbKM',
+        authDomain: 'music-therapy-c96cc.firebaseapp.com',
+        databaseURL: 'https://music-therapy-c96cc.firebaseio.com',
+        projectId: 'music-therapy-c96cc',
+        storageBucket: 'music-therapy-c96cc.appspot.com',
+        messagingSenderId: '637424796932'
     });
 }
 
 const DEFAULT_SEO = {
-    title: 'Sage Prosthetics - 3D Printed Custom Prosthetics',
+    title: 'Music Therapy - {something}',
     description:
         'A student-run service group that uses 3D printing to make custom prosthetics for those in need. All of the prosthetics are made by hand using open-source designs in collaboration with E-Nable.',
     openGraph: {
         type: 'website',
         locale: 'en_IE',
         url: 'https://www.sageprosthetics.org/',
-        title: 'Sage Prosthetics - 3D Printed Custom Prosthetics',
+        title: 'Music Therapy - {something}',
         description:
             'A student-run service group that uses 3D printing to make custom prosthetics for those in need. All of the prosthetics are made by hand using open-source designs in collaboration with E-Nable.',
         image: '/static/favicon.png',

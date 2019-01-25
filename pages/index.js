@@ -195,7 +195,7 @@ class LandingPage extends Component {
 
         return (
             <ParallaxProvider>
-                <title> Sage Prosthetics </title>
+                <title> Music Therapy </title>
                 <ParallaxBanner
                     layers={[
                         {

@@ -28,15 +28,15 @@ class Layout extends Component {
                 size="small"
                 style={{
                     padding: '0% 1.5% 0% 1.5%',
-                    margin: '2.5vh 0 1.5vh 0'
+                    margin: '0.5vh 0 1.5vh 0'
                 }}
             >
                 <Title>
                     <s />
-                    Sage Prosthetics
+                    Sage Hill Music Therapy Club
                 </Title>
                 <Box direction="row" align="center" pad={{ between: 'medium' }}>
-                    <Paragraph margin="none">© 2018 Sage Prosthetics</Paragraph>
+                    <Paragraph margin="none">© 2019 Sage Hill Music Therapy Club</Paragraph>
                     <Anchor href="/privacy-policy">Privacy Policy</Anchor>
                     <Anchor href="/contact">Contact</Anchor>
                     <Anchor href="/">About</Anchor>
@@ -46,33 +46,6 @@ class Layout extends Component {
     }
 
     renderHeader() {
-        const { archive, links } = this.props.recipients;
-        let archiveactive = false;
-
-        if (archive) {
-            archive.forEach(recipient => {
-                if (recipient === this.props.page) {
-                    archiveactive = true;
-                }
-            });
-        }
-
-        let linksactive = archiveactive;
-        if (links) {
-            links.forEach(recipient => {
-                if (recipient === this.props.page) {
-                    linksactive = true;
-                }
-            });
-        }
-
-        let projectsactive = false;
-        this.props.projects.forEach(project => {
-            if (project === this.props.page) {
-                projectsactive = true;
-            }
-        });
-
         return (
             <Header
                 fixed={true}
@@ -97,198 +70,6 @@ class Layout extends Component {
                             marginTop: '2.5vw'
                         }}
                     >
-                        <li className="nav-item" style={styles.navlink}>
-                            <a
-                                ref="target"
-                                style={{ color: '#7ed4c6' }}
-                                href="#!"
-                                onClick={() =>
-                                    this.setState({
-                                        dropdown: 'r',
-                                        secondDropdown: ''
-                                    })
-                                }
-                            >
-                                <div className={linksactive ? 'text active' : 'text'}>
-                                    Recipients
-                                </div>
-                            </a>
-                            <Popover
-                                placement="bottom"
-                                container={this}
-                                target={this.refs.target}
-                                show={this.state.dropdown === 'r'}
-                                onHide={() =>
-                                    this.setState({
-                                        dropdown: false,
-                                        secondDropdown: ''
-                                    })
-                                }
-                                style={{
-                                    marginTop: '5vh',
-                                    zIndex: 40,
-                                    opacity: '1'
-                                    //position: 'absolute'
-                                    //top: window.scrollY + 'px'
-                                }}
-                            >
-                                <>
-                                    {links
-                                        ? links.map(recipient => {
-                                              let text = 'text';
-                                              if (recipient === this.props.page) {
-                                                  archiveactive = true;
-                                                  text = 'text active';
-                                              }
-                                              return (
-                                                  <Link
-                                                      href={`/recipient/${recipient}`}
-                                                      key={recipient}
-                                                      passHref
-                                                  >
-                                                      <a
-                                                          style={{
-                                                              color: '#7ed4c6'
-                                                          }}
-                                                      >
-                                                          <div className={text}>{recipient}</div>
-                                                      </a>
-                                                  </Link>
-                                              );
-                                          })
-                                        : null}
-
-                                    <a
-                                        ref="target2"
-                                        style={{
-                                            color: '#7ed4c6',
-                                            display: 'flex',
-                                            flexDirection: 'row',
-                                            justifyContent: 'space-between'
-                                        }}
-                                        href="#!"
-                                        onClick={() => this.setState({ secondDropdown: 'a' })}
-                                    >
-                                        <div className={archiveactive ? 'text active' : 'text'}>
-                                            Archive
-                                        </div>
-                                        <div
-                                            style={{
-                                                textDecoration: 'none',
-                                                color: '#aaaaaa'
-                                            }}
-                                        >
-                                            >
-                                        </div>
-                                    </a>
-
-                                    <Popover
-                                        placement="right"
-                                        container={this}
-                                        target={this.refs.target2}
-                                        show={this.state.secondDropdown === 'a'}
-                                        onHide={() =>
-                                            this.setState({
-                                                secondDropdown: '',
-                                                dropdown: ''
-                                            })
-                                        }
-                                        style={{
-                                            marginTop: '16vh',
-                                            zIndex: 40,
-                                            opacity: '1'
-                                        }}
-                                    >
-                                        <>
-                                            {archive
-                                                ? archive.map(recipient => {
-                                                      let text = 'text';
-                                                      if (recipient === this.props.page) {
-                                                          archiveactive = true;
-                                                          text = 'text active';
-                                                      }
-                                                      return (
-                                                          <Link
-                                                              href={`/recipient/${recipient}`}
-                                                              key={recipient}
-                                                              passHref
-                                                          >
-                                                              <a
-                                                                  style={{
-                                                                      color: '#7ed4c6'
-                                                                  }}
-                                                              >
-                                                                  <div className={text}>
-                                                                      {recipient}
-                                                                  </div>
-                                                              </a>
-                                                          </Link>
-                                                      );
-                                                  })
-                                                : null}
-                                        </>
-                                    </Popover>
-                                </>
-                            </Popover>
-                        </li>
-
-                        <li className="nav-item" style={styles.navlink}>
-                            <a
-                                ref="target3"
-                                style={{ color: '#7ed4c6' }}
-                                href="#!"
-                                onClick={() => {
-                                    const help = window.scrollY;
-                                    this.setState({
-                                        dropdown: 'p',
-                                        secondDropdown: ''
-                                    });
-                                    setTimeout(() => window.scrollTo(0, help), 0);
-                                }}
-                            >
-                                <div className={projectsactive ? 'text active' : 'text'}>
-                                    Projects
-                                </div>
-                            </a>
-                            <Popover
-                                placement="bottom"
-                                container={this}
-                                target={this.refs.target3}
-                                show={this.state.dropdown === 'p'}
-                                onHide={() => {
-                                    this.setState({
-                                        dropdown: '',
-                                        secondDropdown: ''
-                                    });
-                                }}
-                                style={{
-                                    marginTop: '5vh',
-                                    zIndex: 40,
-                                    opacity: '1'
-                                }}
-                            >
-                                <>
-                                    {this.props.projects.map(project => {
-                                        let text = 'text';
-                                        if (project === this.props.page) {
-                                            text = 'text active';
-                                        }
-                                        return (
-                                            <Link
-                                                href={`/projects/${project}`}
-                                                key={project}
-                                                passHref
-                                            >
-                                                <a style={{ color: '#7ed4c6' }}>
-                                                    <div className={text}>{project}</div>
-                                                </a>
-                                            </Link>
-                                        );
-                                    })}
-                                </>
-                            </Popover>
-                        </li>
-
                         {navlinks.map(link => {
                             return (
                                 <li className="nav-item" style={styles.navlink} key={link.link}>
@@ -353,9 +134,11 @@ class Layout extends Component {
 }
 
 const navlinks = [
-    { text: 'Hand Designs', link: '/hand-designs', page: 'h' },
+    { text: 'Our Mission', link: '/mission', page: 'h' },
     { text: 'Gallery', link: '/gallery', page: 'g' },
-    { text: 'Our Group', link: '/group', page: 't' },
+    { text: 'Members', link: '/group', page: 't' },
+    { text: 'Blog', link: '/blog', page: 'b' },
+    { text: 'Alzheimers and Dementia', link: '/', page: 'a' },
     { text: 'Contact', link: '/contact', page: 'c' }
 ];
 
