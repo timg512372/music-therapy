@@ -2,7 +2,7 @@
 
 ## About
 
-This repo contains the source code for the Music Therapy website.
+This repo contains the source code for the Sage Hill Music Therapy website.
 
 Not deployed yet
 

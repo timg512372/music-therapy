@@ -90,10 +90,10 @@ class Contact extends Component {
             <div style={{ margin: '0% 15% 0% 15%' }}>
                 <NextSeo
                     config={{
-                        title: 'Contact | Sage Prosthetics',
-                        twitter: { title: 'Contact | Sage Prosthetics' },
+                        title: 'Contact | Music To Heal',
+                        twitter: { title: 'Contact | Music To Heal' },
                         openGraph: {
-                            title: 'Contact | Sage Prosthetics'
+                            title: 'Contact | Music To Heal'
                         }
                     }}
                 />

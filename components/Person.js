@@ -15,7 +15,7 @@ const Person = props => {
             onClick={props.onClick}
         >
             <Image
-                cloudName="sageprosthetics"
+                cloudName="music-therapy"
                 publicId={props.src}
                 width="150"
                 //crop="scale"
@@ -39,13 +39,13 @@ const Person = props => {
                 >
                     {props.name}
                 </h4>
-                {props.faculty ? <h5 style={{ marginTop: '-10px' }}> Faculty Advisor </h5> : null}
-                {props.faculty && !props.horizontal ? (
+                {props.role ? <h5 style={{ marginTop: '-10px' }}> {props.role} </h5> : null}
+                {/* {props.role && !props.horizontal ? (
                     <Button plain={true} onClick={props.onClick} style={{ marginTop: '-15px' }}>
                         {' '}
                         View Bio{' '}
                     </Button>
-                ) : null}
+                ) : null} */}
             </div>
         </div>
     );

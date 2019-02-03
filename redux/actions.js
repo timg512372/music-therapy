@@ -27,7 +27,7 @@ export const getGroup = () => async dispatch => {
                 reformat.push({ ...doc.data(), id: doc.id });
             });
             dispatch({
-                type: types.GET_FACULTY,
+                type: types.GET_LEADERSHIP,
                 payload: reformat
             });
         })

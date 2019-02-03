@@ -3,7 +3,7 @@ import * as types from './types.js';
 const INITIAL_STATE = {
     page: '~',
     group: {},
-    faculty: {},
+    leadership: {},
     gallery: [],
     designs: {},
     recipients: ['Internal Server Error!'],
@@ -16,8 +16,8 @@ export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case types.GET_GROUP:
             return { ...state, group: action.payload };
-        case types.GET_FACULTY:
-            return { ...state, faculty: action.payload };
+        case types.GET_LEADERSHIP:
+            return { ...state, leadership: action.payload };
         case types.GET_GALLERY:
             return { ...state, gallery: action.payload };
         case types.GET_DESIGNS:

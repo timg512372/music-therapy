@@ -11,6 +11,7 @@ import { getGroup } from '../redux/actions';
 import * as types from '../redux/types.js';
 import Person from '../components/Person';
 import BioModal from '../components/BioModal';
+import Popover from 'react-simple-popover';
 
 class Group extends Component {
     static async getInitialProps({ req, query, store }) {
@@ -19,46 +20,23 @@ class Group extends Component {
             payload: 't'
         });
 
-        const links = [];
-        const archive = [];
+        const leadership = [];
         req.firebaseServer
             .database()
-            .ref('recipients')
+            .ref('leadership')
             .once('value')
             .then(datasnapshot => {
                 datasnapshot.forEach(child => {
-                    if (child.val().archive == true) {
-                        archive.push(child.key);
-                    } else {
-                        links.push(child.key);
-                    }
-                });
-            });
-
-        const project = [];
-        req.firebaseServer
-            .database()
-            .ref('projects')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    project.push(child.key);
-                });
-            });
-
-        const faculty = [];
-        req.firebaseServer
-            .database()
-            .ref('faculty')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    faculty.push({
+                    const temp = child.val();
+                    leadership.push({
                         name: child.key,
-                        src: child.val().image,
-                        bio: child.val().bio
+                        src: temp.image,
+                        bio: temp.bio,
+                        order: temp.order,
+                        role: temp.role
                     });
                 });
+                leadership.sort((a, b) => a.order > b.order);
             });
 
         const reformat = [];
@@ -82,44 +60,39 @@ class Group extends Component {
         });
 
         store.dispatch({
-            type: types.GET_RECIPIENTS,
-            payload: { links, archive }
-        });
-
-        store.dispatch({
-            type: types.GET_PROJECTS,
-            payload: project
-        });
-
-        store.dispatch({
-            type: types.GET_FACULTY,
-            payload: faculty
+            type: types.GET_LEADERSHIP,
+            payload: leadership
         });
     }
 
     state = {
-        profile: ''
+        dropdown: false
     };
 
-    renderFaculty = () => {
-        if (!this.props.faculty) {
+    renderLeadership = () => {
+        if (!this.props.leadership) {
             return <h4> Loading ... </h4>;
         }
 
+        console.log(this.state.dropdown);
+
         try {
-            const teachers = this.props.faculty.map(teacher => {
+            const leaders = this.props.leadership.map(person => {
                 return (
-                    <Person
-                        key={teacher.name}
-                        src={teacher.src}
-                        name={teacher.name}
-                        faculty
-                        onClick={() => this.setState({ profile: teacher })}
-                    />
+                    <div ref="target" backgroundColor="yellow" height="2vh" width="5vw">
+                        <Person
+                            key={person.name}
+                            src={person.src}
+                            name={person.name}
+                            role={person.role}
+                            onClick={() => this.setState({ dropdown: !this.state.dropdown })}
+                        />
+                        <h4>{person.bio}</h4>
+                    </div>
                 );
             });
 
-            return teachers.reverse();
+            return leaders;
         } catch {
             return <h4> Loading ... </h4>;
         }
@@ -147,17 +120,20 @@ class Group extends Component {
             <div style={{ margin: '0% 15% 0% 15%' }}>
                 <NextSeo
                     config={{
-                        title: 'Our Group | Music Therapy',
-                        twitter: { title: 'Our Group | Music Therapy' },
+                        title: 'Our Group | Music To Heal',
+                        twitter: { title: 'Our Group | Music To Heal' },
                         openGraph: {
-                            title: 'Our Group | Music Therapy'
+                            title: 'Our Group | Music To Heal'
                         }
                     }}
                 />
-                <h2 style={{ textAlign: 'center' }}> Meet our Service Group </h2>
+                <h2 style={{ textAlign: 'center', fontFamily: 'Jost', fontWeight: '300' }}>
+                    {' '}
+                    Meet our Group{' '}
+                </h2>
 
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    {this.renderFaculty()}
+                    {this.renderLeadership()}
                 </div>
 
                 <div
@@ -178,52 +154,15 @@ class Group extends Component {
                 >
                     {this.renderStudent()}
                 </div>
-
-                <Transition
-                    onEnter={modalEnter}
-                    timeout={0}
-                    in={this.state.profile !== ''}
-                    onExit={modalExit}
-                >
-                    <div className="biomodal">
-                        <BioModal
-                            show={this.state.profile !== ''}
-                            onToggleModal={() => this.setState({ profile: '' })}
-                            person={this.state.profile}
-                        />
-                    </div>
-                </Transition>
             </div>
         );
     }
 }
 
-const modalEnter = biomodal => {
-    return anime({
-        // targets: biomodal,
-        // opacity: {
-        //     value: [0, 1]
-        // },
-        // easing: 'easeOutQuint',
-        // duration: 1000
-    });
-};
-
-const modalExit = biomodal => {
-    return anime({
-        // targets: biomodal,
-        // opacity: {
-        //     value: [1, 0]
-        // },
-        // easing: 'easeOutQuint',
-        // duration: 1000
-    });
-};
-
 const mapStateToProps = state => {
     return {
         group: state.group,
-        faculty: state.faculty
+        leadership: state.leadership
     };
 };
 

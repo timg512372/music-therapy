@@ -16,8 +16,13 @@ export default class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700"
                         rel="stylesheet"
                     />
-                    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css?family=Sumana" rel="stylesheet" />
+                    <link
+                        rel="stylesheet"
+                        href="https://indestructibletype.com/fonts/Jost.css"
+                        type="text/css"
+                        charSet="utf-8"
+                    />
                     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript" />
 
                     {/* <meta

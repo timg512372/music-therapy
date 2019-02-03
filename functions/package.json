@@ -1,9 +1,16 @@
 {
-    "name": "music-therapy",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
+    "name": "functions",
+    "description": "Cloud Functions for Firebase",
+    "scripts": {
+        "serve": "firebase serve --only functions",
+        "shell": "firebase functions:shell",
+        "start": "npm run shell",
+        "deploy": "firebase deploy --only functions",
+        "logs": "firebase functions:log"
+    },
     "dependencies": {
+        "firebase-admin": "~6.0.0",
+        "firebase-functions": "^2.1.0",
         "@app-masters/react-cloudinary-uploader": "^0.1.41",
         "@now/next": "^0.0.81",
         "@zeit/next-sass": "^1.0.1",
@@ -13,7 +20,6 @@
         "cloudinary-react": "^1.0.6",
         "express": "^4.16.4",
         "firebase": "^5.5.8",
-        "firebase-admin": "^6.1.0",
         "firestore-export-import": "^0.1.6",
         "global": "^4.3.2",
         "grommet": "^1.11.0",
@@ -39,27 +45,5 @@
         "redux-thunk": "^2.3.0",
         "video-react": "^0.13.1"
     },
-    "devDependencies": {
-        "babel-eslint": "^8.2.5",
-        "eslint": "^5.0.0-rc.0",
-        "eslint-config-react-app": "^3.0.5",
-        "eslint-plugin-flowtype": "^2.49.3",
-        "eslint-plugin-import": "^2.12.0",
-        "eslint-plugin-jsx-a11y": "^6.0.3",
-        "eslint-plugin-react": "^7.9.1"
-    },
-    "scripts": {
-        "dev": "NODE_ENV=development node server.js",
-        "build": "next build",
-        "start": "NODE_ENV=production node server.js ",
-        "install": "yarn build-all",
-        "next": "yarn build-firebase && cd \"app\" && yarn && yarn dev",
-        "preserve": "yarn build-all",
-        "serve": "firebase serve",
-        "predeploy": "yarn build-all",
-        "deploy": "firebase deploy",
-        "build-all": "yarn build-next && yarn build-firebase",
-        "build-next": "cd \"src/app\" && yarn && yarn build",
-        "build-firebase": "cd \"src/functions\" && yarn"
-    }
+    "private": true
 }

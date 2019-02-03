@@ -52,10 +52,10 @@ class PrivacyPolicy extends Component {
             <div style={{ margin: '0 15% 0 15%' }}>
                 <NextSeo
                     config={{
-                        title: `Privacy Policy | Sage Prosthetics`,
-                        twitter: { title: 'Privacy Policy | Sage Prosthetics' },
+                        title: `Privacy Policy | Music To Heal`,
+                        twitter: { title: 'Privacy Policy | Music To Heal' },
                         openGraph: {
-                            title: 'Privacy Policy | Sage Prosthetics'
+                            title: 'Privacy Policy | Music To Heal'
                         }
                     }}
                 />

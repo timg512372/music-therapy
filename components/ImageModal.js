@@ -35,7 +35,7 @@ const ImageModal = props => {
                     onClick={props.onToggleModal}
                 >
                     <Image
-                        cloudName="sageprosthetics"
+                        cloudName="music-therapy"
                         publicId={props.src}
                         width="1000"
                         height="750"

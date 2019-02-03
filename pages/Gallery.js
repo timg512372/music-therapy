@@ -103,7 +103,7 @@ class Gallery extends Component {
                         // onMouseOut={() => console.log('mouse down')}
                     >
                         <Image
-                            cloudName="sageprosthetics"
+                            cloudName="music-therapy"
                             publicId={src}
                             width="248"
                             height="186"
@@ -161,10 +161,10 @@ class Gallery extends Component {
             <div style={{ margin: '0% 5% 0% 5%' }}>
                 <NextSeo
                     config={{
-                        title: 'Gallery | Sage Prosthetics',
-                        twitter: { title: 'Gallery | Sage Prosthetics' },
+                        title: 'Gallery | Music To Heal',
+                        twitter: { title: 'Gallery | Music To Heal' },
                         openGraph: {
-                            title: 'Gallery | Sage Prosthetics'
+                            title: 'Gallery | Music To Heal'
                         }
                     }}
                 />

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import * as types from '../redux/types';
 import posed from 'react-pose';
-//import { Parallax, Background } from 'react-parallax';
 import { Parallax, ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
-import Button from 'grommet/components/Button';
 import anime from 'animejs';
 import Transition from 'react-transition-group/Transition';
 import Particles from 'react-particles-js';
-import { Router } from '../routes';
+import { connect } from 'react-redux';
+
+import Header from '../components/Header';
 
 import '../styles.scss';
 
@@ -133,7 +133,8 @@ class LandingPage extends Component {
                     fontWeight: '400',
                     margin: '0 20% 0 20%',
                     borderWidth: '0px',
-                    width: '60%'
+                    width: '60%',
+                    backgroundColor: '#FAFAFA'
                 }}
             >
                 <AccordionPanel
@@ -194,304 +195,190 @@ class LandingPage extends Component {
         });
 
         return (
-            <ParallaxProvider>
-                <title> Music Therapy </title>
-                <ParallaxBanner
-                    layers={[
-                        {
-                            children: (
-                                <div
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        background:
-                                            'linear-gradient(160deg, #ffffff, #ffffff, #1d698b)'
-                                    }}
-                                />
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: false
-                        },
-                        {
-                            children: (
-                                <Transition
-                                    onEnter={animatePrinterIn}
-                                    timeout={1000}
-                                    in={this.state.isVisible}
-                                >
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            width: '100vw',
-                                            opacity: 0
-                                        }}
-                                        className="printer"
-                                    >
-                                        <img
-                                            src="/static/1-21-squashed.png"
-                                            style={{
-                                                margin: '150px 0 100px 0',
-                                                width: '50%',
-                                                height: '50%'
-                                            }}
-                                            alt="gradient"
-                                        />
-                                    </div>
-                                </Transition>
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: true
-                        },
-                        {
-                            children: (
-                                <Transition
-                                    onEnter={animateHeadingIn}
-                                    timeout={0}
-                                    in={this.state.isVisible}
-                                >
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'center',
-                                            width: '100vw',
-                                            fontWeight: '900',
-                                            textAlign: 'center',
-                                            fontSize: '7vh',
-                                            margin: '14% 0 0 10px',
-                                            opacity: 0
-                                        }}
-                                        className="heading"
-                                    >
-                                        <div
-                                            style={{
-                                                color: '#7ed4c6',
-                                                lineHeight: '100%',
-                                                background:
-                                                    '-webkit-linear-gradient(left, #9357cc 0%,#2989d8 50%,#2cc99d 100%)',
-                                                WebkitBackgroundClip: 'text',
-                                                WebkitTextFillColor: 'transparent',
-                                                letterSpacing: '-0.05em'
-                                            }}
-                                        >
-                                            MUSIC TO <br /> HEAL
-                                        </div>
-                                    </div>
-                                </Transition>
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: false
-                        }
-                    ]}
-                    style={{
-                        height: '75vh'
-                    }}
-                />
-
-                <ParallaxBanner
-                    layers={[
-                        {
-                            children: (
-                                <div
-                                    style={{
-                                        width: '100%',
-                                        height: '100%'
-                                    }}
-                                />
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: false
-                        },
-                        {
-                            children: (
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        flexDirection: 'column',
-                                        justifyContent: 'center',
-                                        width: '100vw'
-                                    }}
-                                >
-                                    <div style={{ width: '100vw', padding: '0px', margin: '0px' }}>
-                                        <div
-                                            style={{
-                                                position: 'absolute',
-                                                width: '100vw',
-                                                height: '40vh'
-                                            }}
-                                        >
-                                            {this.renderParticles()}
-                                        </div>
-                                        <div
-                                            style={{
-                                                fontWeight: '700',
-                                                textAlign: 'center',
-                                                margin: '15% 0 10% 10px',
-                                                zIndex: 30,
-                                                pointerEvents: 'none'
-                                            }}
-                                        >
-                                            <Transition
-                                                onEnter={animateSubheadingIn}
-                                                timeout={0}
-                                                in={this.state.isVisible}
-                                            >
-                                                <div
-                                                    style={{
-                                                        lineHeight: '85%',
-                                                        background:
-                                                            '-webkit-linear-gradient(left, #9357cc 30%,#2989d8 50%,#2cc99d 70%)',
-                                                        WebkitBackgroundClip: 'text',
-                                                        WebkitTextFillColor: 'transparent',
-                                                        fontSize: '6vh',
-                                                        letterSpacing: '0.1em'
-                                                    }}
-                                                    className="subheading"
-                                                >
-                                                    WE USE 3D PRINTING TO{' '}
-                                                </div>
-                                            </Transition>
-                                            <Transition
-                                                onEnter={animateMainheadingIn}
-                                                timeout={0}
-                                                in={this.state.isVisible}
-                                            >
-                                                <div
-                                                    style={{
-                                                        fontSize: '10vh',
-                                                        lineHeight: '100%',
-                                                        letterSpacing: '0.05em'
-                                                    }}
-                                                    className="mainheading"
-                                                >
-                                                    {' '}
-                                                    MAKE PROSTHETICS{' '}
-                                                </div>
-                                            </Transition>
-                                        </div>
-                                    </div>
-                                    <div
-                                        style={{
-                                            backgroundColor: 'white',
-                                            zIndex: '30',
-                                            width: '100%',
-                                            justifyContent: 'center'
-                                        }}
-                                    >
-                                        {this.renderAccordian()}
-                                    </div>
-                                </div>
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: false
-                        }
-                    ]}
-                    style={{
-                        height: '100vh'
-                    }}
-                />
-                <ParallaxBanner
-                    layers={[
-                        {
-                            children: (
-                                <div
-                                    style={{
-                                        // backgroundImage: url(
-                                        //     '/static/backgroundtile.png'
-                                        // ),
-                                        background: '#000000',
-                                        height: '100%',
-                                        width: '100vw'
-                                        //opacity: '0.7'
-                                    }}
-                                >
-                                    <img
-                                        src="/static/video.jpg"
-                                        style={{
-                                            width: '100vw',
-                                            opacity: '0.7'
-                                        }}
-                                        alt="video"
-                                    />
+            <div style={{ margin: '5vh' }}>
+                <title> Music To Heal </title>
+                <ParallaxProvider>
+                    <ParallaxBanner
+                        layers={[
+                            {
+                                children: (
                                     <div
                                         style={{
                                             width: '100%',
                                             height: '100%',
-                                            zIndex: '2',
-                                            background: '#000000',
-                                            opacity: '0.7'
+                                            background: '#cccccc'
+                                        }}
+                                    >
+                                        <img
+                                            src="/static/sample.jpg"
+                                            style={{ width: '100%', height: '100%' }}
+                                            alt="some sample"
+                                        />
+                                    </div>
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: true
+                            },
+                            {
+                                children: (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'start',
+                                            width: '98.7%',
+                                            textAlign: 'center',
+                                            margin: '2vh 0 0 10px'
+                                        }}
+                                        className="heading"
+                                    >
+                                        <Header page={this.props.page} />
+
+                                        <div
+                                            style={{
+                                                color: '#ffffff',
+                                                margin: '27vh 0px 20px 0px',
+                                                letterSpacing: '0.1em',
+                                                fontFamily: 'Jost',
+                                                fontSize: '190%',
+                                                fontWeight: '400'
+                                            }}
+                                        >
+                                            sage hill school / newport coast, ca
+                                        </div>
+                                        <div
+                                            style={{
+                                                fontSize: '450%',
+                                                fontWeight: '900',
+                                                color: '#ffffff',
+                                                lineHeight: '100%',
+                                                letterSpacing: '0.04em'
+                                            }}
+                                        >
+                                            MUSIC TO HEAL
+                                        </div>
+                                    </div>
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: false
+                            }
+                        ]}
+                        style={{
+                            height: '90vh'
+                        }}
+                    />
+
+                    <ParallaxBanner
+                        layers={[
+                            {
+                                children: (
+                                    <div
+                                        style={{
+                                            width: '100%',
+                                            height: '100%'
                                         }}
                                     />
-                                </div>
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: true
-                        },
-                        {
-                            children: (
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        flexDirection: 'column',
-                                        width: '100vw',
-                                        color: '#ffffff',
-                                        textAlign: 'center',
-                                        margin: '15% 0 0 10px'
-                                        //backgroundColor: '#000000'
-                                    }}
-                                >
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: false
+                            },
+                            {
+                                children: (
                                     <div
                                         style={{
-                                            fontSize: '9vh',
-                                            fontWeight: '700',
-                                            lineHeight: '100%',
-                                            letterSpacing: '-0.05em'
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            flexDirection: 'column',
+                                            justifyContent: 'center',
+                                            width: '100vw'
                                         }}
                                     >
-                                        e-NABLE
+                                        <div
+                                            style={{
+                                                width: '100vw',
+                                                padding: '0px',
+                                                margin: '0px'
+                                            }}
+                                        >
+                                            <div
+                                                style={{
+                                                    position: 'absolute',
+                                                    width: '100vw',
+                                                    height: '40vh'
+                                                }}
+                                            >
+                                                {/* {this.renderParticles()} */}
+                                            </div>
+                                            <div
+                                                style={{
+                                                    fontWeight: '700',
+                                                    textAlign: 'center',
+                                                    margin: '15% 0 10% 10px',
+                                                    zIndex: 30,
+                                                    pointerEvents: 'none'
+                                                }}
+                                            >
+                                                <Transition
+                                                    onEnter={animateSubheadingIn}
+                                                    timeout={0}
+                                                    in={this.state.isVisible}
+                                                >
+                                                    <div
+                                                        style={{
+                                                            lineHeight: '85%',
+                                                            background:
+                                                                '-webkit-linear-gradient(left, #9357cc 30%,#2989d8 50%,#2cc99d 70%)',
+                                                            WebkitBackgroundClip: 'text',
+                                                            WebkitTextFillColor: 'transparent',
+                                                            fontSize: '300%',
+                                                            letterSpacing: '0.1em'
+                                                        }}
+                                                        className="subheading"
+                                                    >
+                                                        WE USE 3D PRINTING TO{' '}
+                                                    </div>
+                                                </Transition>
+                                                <Transition
+                                                    onEnter={animateMainheadingIn}
+                                                    timeout={0}
+                                                    in={this.state.isVisible}
+                                                >
+                                                    <div
+                                                        style={{
+                                                            fontSize: '500%',
+                                                            lineHeight: '100%',
+                                                            letterSpacing: '0.05em'
+                                                        }}
+                                                        className="mainheading"
+                                                    >
+                                                        {' '}
+                                                        MAKE PROSTHETICS{' '}
+                                                    </div>
+                                                </Transition>
+                                            </div>
+                                        </div>
+                                        <div
+                                            style={{
+                                                backgroundColor: '#FAFAFA',
+                                                zIndex: '30',
+                                                width: '100%',
+                                                justifyContent: 'center'
+                                            }}
+                                        >
+                                            {this.renderAccordian()}
+                                        </div>
                                     </div>
-                                    <div
-                                        style={{
-                                            fontSize: '2.5vh',
-                                            fontWeight: '500',
-                                            lineHeight: '110%',
-                                            letterSpacing: '0.2em'
-                                        }}
-                                    >
-                                        Connecting people who make hands <br /> with people who need
-                                        them.
-                                    </div>
-                                    <Box
-                                        style={{
-                                            margin: '40px',
-                                            padding: '15px',
-                                            borderWeight: '2px'
-                                        }}
-                                        href="http://enablingthefuture.org/"
-                                        onClick={() =>
-                                            (window.location.href = 'http://enablingthefuture.org/')
-                                        }
-                                    >
-                                        Learn more about e-NABLE
-                                        {/* <Button
-                                            label="Learn more about e-NABLE"
-                                            critical={true}
-                                            style={{ color: '#ffffff' }}
-                                        /> */}
-                                    </Box>
-                                </div>
-                            ),
-                            amount: 0.1,
-                            slowerScrollRate: false
-                        }
-                    ]}
-                    style={{
-                        height: '600px'
-                    }}
-                />
-            </ParallaxProvider>
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: false
+                            }
+                        ]}
+                        style={{
+                            height: '100vh'
+                        }}
+                    />
+                </ParallaxProvider>
+            </div>
         );
     }
 }
@@ -595,4 +482,14 @@ const styles = {
         margin: '10px 10px 0 20px'
     }
 };
-export default LandingPage;
+
+const mapStateToProps = state => {
+    return {
+        page: state.page
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    null
+)(LandingPage);
