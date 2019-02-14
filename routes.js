@@ -7,7 +7,7 @@ routes.add('/group', 'Group');
 routes.add('/gallery', 'Gallery');
 routes.add('/contact', 'Contact');
 routes.add('/blog', 'Blog');
-routes.add('/mission', 'index');
+routes.add('/mission', 'Mission');
 routes.add('/admin', 'Admin');
 
 module.exports = routes;

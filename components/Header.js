@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Title from 'grommet/components/Title';
-import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Button from 'grommet/components/Button';
 
@@ -48,7 +47,8 @@ const ProperHeader = props => {
                                 <Link href={link.link} passHref>
                                     <a
                                         style={{
-                                            color: '#c6c5b5'
+                                            color: '#c6c5b5',
+                                            textDecoration: 'none'
                                         }}
                                     >
                                         <div
@@ -93,7 +93,7 @@ const ProperHeader = props => {
 const navlinks = [
     { text: 'Our Mission', link: '/mission', page: 'h' },
     { text: 'Gallery', link: '/gallery', page: 'g' },
-    { text: 'Members', link: '/group', page: 't' },
+    { text: 'Members', link: '/group', page: 'e' },
     { text: 'Blog', link: '/blog', page: 'b' }
 ];
 

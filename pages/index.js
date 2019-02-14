@@ -8,6 +8,7 @@ import anime from 'animejs';
 import Transition from 'react-transition-group/Transition';
 import Particles from 'react-particles-js';
 import { connect } from 'react-redux';
+import Link from 'next/link';
 
 import Header from '../components/Header';
 
@@ -188,6 +189,38 @@ class LandingPage extends Component {
         );
     };
 
+    renderNavLinks = () => {
+        return navlinks.map(link => {
+            return (
+                <div
+                    style={{
+                        height: '22vw',
+                        width: '22vw',
+                        backgroundImage: `url(${link.src})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: '22vw',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        margin: '5vw 1vw 0 1vw'
+                    }}
+                    key={link.href}
+                >
+                    <a
+                        style={{
+                            textDecoration: 'none',
+                            fontSize: '180%'
+                        }}
+                        href={link.href}
+                        className="navlink"
+                    >
+                        {link.text}
+                    </a>
+                </div>
+            );
+        });
+    };
+
     render() {
         const Animation = posed.div({
             visible: { opacity: 1 },
@@ -205,8 +238,7 @@ class LandingPage extends Component {
                                     <div
                                         style={{
                                             width: '100%',
-                                            height: '100%',
-                                            background: '#cccccc'
+                                            height: '100%'
                                         }}
                                     >
                                         <img
@@ -256,6 +288,85 @@ class LandingPage extends Component {
                                             }}
                                         >
                                             MUSIC TO HEAL
+                                        </div>
+                                    </div>
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: false
+                            }
+                        ]}
+                        style={{
+                            height: '90vh'
+                        }}
+                    />
+
+                    <ParallaxBanner
+                        layers={[
+                            {
+                                children: (
+                                    <div
+                                        style={{
+                                            width: '100%',
+                                            height: '100%'
+                                        }}
+                                    />
+                                ),
+                                amount: 0.1,
+                                slowerScrollRate: true
+                            },
+                            {
+                                children: (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            justifyContent: 'start',
+                                            width: '98.7%',
+                                            textAlign: 'center',
+                                            margin: '6vw 0 0 10px'
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                display: 'flex',
+                                                flexDirection: 'row',
+                                                justifyContent: 'center'
+                                            }}
+                                        >
+                                            {this.renderNavLinks()}
+                                        </div>
+                                        <div
+                                            style={{
+                                                display: 'flex',
+                                                flexDirection: 'row',
+                                                justifyContent: 'space-around',
+                                                alignItems: 'center',
+                                                marginTop: '10vw',
+                                                width: '100%'
+                                            }}
+                                        >
+                                            <div
+                                                style={{
+                                                    fontSize: '150%',
+                                                    fontFamily: 'Jost',
+                                                    width: '30%',
+                                                    letterSpacing: '0.1em'
+                                                }}
+                                            >
+                                                {' '}
+                                                Insert Tagline Here{' '}
+                                            </div>
+                                            <div style={{ width: '40%', textAlign: 'left' }}>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                                                elit, sed do eiusmod tempor incididunt ut labore et
+                                                dolore magna aliqua. Ut enim ad minim veniam, quis
+                                                nostrud exercitation ullamco laboris nisi ut aliquip
+                                                ex ea commodo consequat. Duis aute irure dolor in
+                                                reprehenderit in voluptate velit esse cillum dolore
+                                                eu fugiat nulla pariatur. Excepteur sint occaecat
+                                                cupidatat non proident, sunt in culpa qui officia
+                                                deserunt mollit anim id est laborum.
+                                            </div>
                                         </div>
                                     </div>
                                 ),
@@ -378,6 +489,11 @@ class LandingPage extends Component {
                         }}
                     />
                 </ParallaxProvider>
+                <style jsx>{`
+                    .navlink {
+                        color: #ffffff;
+                    }
+                `}</style>
             </div>
         );
     }
@@ -482,6 +598,12 @@ const styles = {
         margin: '10px 10px 0 20px'
     }
 };
+
+const navlinks = [
+    { src: '/static/links.jpg', href: '/mission', text: 'Our Mission' },
+    { src: '/static/links.jpg', href: '/gallery', text: 'Gallery' },
+    { src: '/static/links.jpg', href: '/group', text: 'Members' }
+];
 
 const mapStateToProps = state => {
     return {

@@ -90,16 +90,16 @@ class Contact extends Component {
             <div style={{ margin: '0% 15% 0% 15%' }}>
                 <NextSeo
                     config={{
-                        title: 'Contact | Music To Heal',
-                        twitter: { title: 'Contact | Music To Heal' },
+                        title: 'Contact — Music To Heal',
+                        twitter: { title: 'Contact — Music To Heal' },
                         openGraph: {
-                            title: 'Contact | Music To Heal'
+                            title: 'Contact — Music To Heal'
                         }
                     }}
                 />
                 <h2 style={{ textAlign: 'center' }}>Contact Us</h2>
                 <form
-                    action="https://formspree.io/lercht@sagehillschool.org"
+                    action="https://formspree.io/20chunga@sagehillschool.org"
                     method="POST"
                     style={{
                         display: 'flex',

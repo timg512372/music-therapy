@@ -12,6 +12,7 @@ import * as types from '../redux/types.js';
 import Person from '../components/Person';
 import BioModal from '../components/BioModal';
 import Popover from 'react-simple-popover';
+import Header from '../components/Header';
 
 class Group extends Component {
     static async getInitialProps({ req, query, store }) {
@@ -117,42 +118,61 @@ class Group extends Component {
     render() {
         //console.log(this.state);
         return (
-            <div style={{ margin: '0% 15% 0% 15%' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    width: '100%'
+                }}
+            >
                 <NextSeo
                     config={{
-                        title: 'Our Group | Music To Heal',
-                        twitter: { title: 'Our Group | Music To Heal' },
+                        title: 'Members — Music To Heal',
+                        twitter: { title: 'Members — Music To Heal' },
                         openGraph: {
-                            title: 'Our Group | Music To Heal'
+                            title: 'Members — Music To Heal'
                         }
                     }}
                 />
-                <h2 style={{ textAlign: 'center', fontFamily: 'Jost', fontWeight: '300' }}>
-                    {' '}
-                    Meet our Group{' '}
-                </h2>
-
-                <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                    {this.renderLeadership()}
-                </div>
-
-                <div
-                    style={{
-                        height: '1.5px',
-                        backgroundColor: '#cccccc',
-                        borderRadius: '1px',
-                        margin: '10px 0 40px 0'
-                    }}
-                />
-
                 <div
                     style={{
                         display: 'flex',
-                        justifyContent: 'space-around',
-                        flexWrap: 'wrap'
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center'
                     }}
                 >
-                    {this.renderStudent()}
+                    <Header page="e" />
+                </div>
+                <div style={{ margin: '0% 15% 0% 15%' }}>
+                    <h2 style={{ textAlign: 'center', fontFamily: 'Jost', fontWeight: '300' }}>
+                        {' '}
+                        Meet our Group{' '}
+                    </h2>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                        {this.renderLeadership()}
+                    </div>
+
+                    <div
+                        style={{
+                            height: '1.5px',
+                            backgroundColor: '#cccccc',
+                            borderRadius: '1px',
+                            margin: '10px 0 40px 0'
+                        }}
+                    />
+
+                    <div
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'space-around',
+                            flexWrap: 'wrap'
+                        }}
+                    >
+                        {this.renderStudent()}
+                    </div>
                 </div>
             </div>
         );

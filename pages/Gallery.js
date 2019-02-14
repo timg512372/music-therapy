@@ -8,6 +8,7 @@ import { getGroup } from '../redux/actions';
 import serviceAccount from '../firebasekeys.json';
 import * as types from '../redux/types.js';
 import ImageModal from '../components/ImageModal';
+import Header from '../components/Header';
 
 import Anchor from 'grommet/components/Anchor';
 import Heading from 'grommet/components/Heading';
@@ -148,7 +149,7 @@ class Gallery extends Component {
                 onClick={() => this.setState({ page: this.state.page + 1 })}
                 disabled={
                     !this.props.gallery ||
-                    this.state.page == Math.ceil(this.props.gallery.length / 20)
+                    this.state.page === Math.ceil(this.props.gallery.length / 20)
                 }
                 key=">"
             />
@@ -161,13 +162,14 @@ class Gallery extends Component {
             <div style={{ margin: '0% 5% 0% 5%' }}>
                 <NextSeo
                     config={{
-                        title: 'Gallery | Music To Heal',
-                        twitter: { title: 'Gallery | Music To Heal' },
+                        title: 'Gallery — Music To Heal',
+                        twitter: { title: 'Gallery — Music To Heal' },
                         openGraph: {
-                            title: 'Gallery | Music To Heal'
+                            title: 'Gallery — Music To Heal'
                         }
                     }}
                 />
+                <Header page="g" />
                 <h2 style={{ textAlign: 'center' }}>Photo Gallery</h2>
 
                 <div
