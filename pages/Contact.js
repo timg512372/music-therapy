@@ -5,55 +5,50 @@ import { getGroup } from '../redux/actions';
 import { Image, Transformation } from 'cloudinary-react';
 import * as types from '../redux/types.js';
 import NextSeo from 'next-seo';
-import { Player } from 'video-react';
-import ReactPlayer from 'react-player';
+import Header from '../components/Header';
 
 import FormField from 'grommet/components/FormField';
 import Button from 'grommet/components/Button';
 
 class Contact extends Component {
     static async getInitialProps({ req, query, store }) {
-        store.dispatch({
-            type: types.CHANGE_PAGE,
-            payload: 'c'
-        });
-
-        const project = [];
-        req.firebaseServer
-            .database()
-            .ref('projects')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    project.push(child.key);
-                });
-            });
-
-        const links = [];
-        const archive = [];
-        await req.firebaseServer
-            .database()
-            .ref('recipients')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    if (child.val().archive == true) {
-                        archive.push(child.key);
-                    } else {
-                        links.push(child.key);
-                    }
-                });
-            });
-
-        store.dispatch({
-            type: types.GET_RECIPIENTS,
-            payload: { links, archive }
-        });
-
-        store.dispatch({
-            type: types.GET_PROJECTS,
-            payload: project
-        });
+        // store.dispatch({
+        //     type: types.CHANGE_PAGE,
+        //     payload: 'c'
+        // });
+        // const project = [];
+        // req.firebaseServer
+        //     .database()
+        //     .ref('projects')
+        //     .once('value')
+        //     .then(datasnapshot => {
+        //         datasnapshot.forEach(child => {
+        //             project.push(child.key);
+        //         });
+        //     });
+        // const links = [];
+        // const archive = [];
+        // await req.firebaseServer
+        //     .database()
+        //     .ref('recipients')
+        //     .once('value')
+        //     .then(datasnapshot => {
+        //         datasnapshot.forEach(child => {
+        //             if (child.val().archive == true) {
+        //                 archive.push(child.key);
+        //             } else {
+        //                 links.push(child.key);
+        //             }
+        //         });
+        //     });
+        // store.dispatch({
+        //     type: types.GET_RECIPIENTS,
+        //     payload: { links, archive }
+        // });
+        // store.dispatch({
+        //     type: types.GET_PROJECTS,
+        //     payload: project
+        // });
     }
 
     state = {
@@ -71,23 +66,23 @@ class Contact extends Component {
                     form="form1"
                     value="Send"
                     accent
-                    style={{ margin: '20px 45% 0% 45%', width: '10%' }}
+                    style={{ margin: '20px 45% 0% 45%', width: '10%', ...styles.button }}
                 />
             );
         }
 
-        return <Button label="Submit" accent style={{ margin: '20px 45% 0% 45%', width: '10%' }} />;
-    }
-
-    componentDidMount() {
-        //this.refs.player.controls = false;
-        //console.log(this.refs.player.getState());
+        return (
+            <Button
+                label="Submit"
+                accent
+                style={{ margin: '20px 45% 0% 45%', width: '10%', ...styles.button }}
+            />
+        );
     }
 
     render() {
-        //console.log(this.state.message);
         return (
-            <div style={{ margin: '0% 15% 0% 15%' }}>
+            <div style={{ width: '100%' }}>
                 <NextSeo
                     config={{
                         title: 'Contact — Music To Heal',
@@ -97,14 +92,19 @@ class Contact extends Component {
                         }
                     }}
                 />
-                <h2 style={{ textAlign: 'center' }}>Contact Us</h2>
+                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                    <Header page="" />
+                </div>
+
+                <h2 style={{ textAlign: 'center', marginTop: '30vh 0 30vh 0' }}>Contact Us</h2>
                 <form
                     action="https://formspree.io/20chunga@sagehillschool.org"
                     method="POST"
                     style={{
                         display: 'flex',
                         alignItems: 'center',
-                        flexDirection: 'column'
+                        flexDirection: 'column',
+                        margin: '0 15% 0 15%'
                     }}
                     id="form1"
                 >
@@ -190,6 +190,15 @@ class Contact extends Component {
         );
     }
 }
+
+const styles = {
+    button: {
+        borderRadius: '0px',
+        borderWidth: '1px',
+        fontFamily: 'Jost',
+        fontWeight: 200
+    }
+};
 
 const mapStateToProps = state => {
     return {

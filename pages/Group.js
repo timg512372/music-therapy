@@ -126,6 +126,10 @@ class Group extends Component {
                     width: '100%'
                 }}
             >
+                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                    <Header page="e" />
+                </div>
+
                 <NextSeo
                     config={{
                         title: 'Members — Music To Heal',
@@ -135,21 +139,8 @@ class Group extends Component {
                         }
                     }}
                 />
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}
-                >
-                    <Header page="e" />
-                </div>
                 <div style={{ margin: '0% 15% 0% 15%' }}>
-                    <h2 style={{ textAlign: 'center', fontFamily: 'Jost', fontWeight: '300' }}>
-                        {' '}
-                        Meet our Group{' '}
-                    </h2>
+                    <h2 style={{ textAlign: 'center', fontWeight: '300' }}> Meet our Group </h2>
 
                     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                         {this.renderLeadership()}

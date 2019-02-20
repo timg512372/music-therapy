@@ -159,7 +159,7 @@ class Gallery extends Component {
 
     render() {
         return (
-            <div style={{ margin: '0% 5% 0% 5%' }}>
+            <div style={{ width: '100%' }}>
                 <NextSeo
                     config={{
                         title: 'Gallery — Music To Heal',
@@ -169,7 +169,10 @@ class Gallery extends Component {
                         }
                     }}
                 />
-                <Header page="g" />
+                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                    <Header page="g" />
+                </div>
+
                 <h2 style={{ textAlign: 'center' }}>Photo Gallery</h2>
 
                 <div
@@ -177,7 +180,8 @@ class Gallery extends Component {
                         display: 'flex',
                         flexWrap: 'wrap',
                         flexDirection: 'row',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        margin: '0 5% 0 5%'
                     }}
                 >
                     {this.renderImages()}

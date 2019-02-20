@@ -15,8 +15,8 @@ const ProperHeader = props => {
                 marginTop: '8vh',
                 display: 'flex',
                 justifyContent: 'space-around',
-                alignItems: 'center',
-                width: '92.75vw'
+                alignItems: 'center'
+                //width: '92.75vw'
             }}
         >
             <Title>

@@ -28,7 +28,7 @@ const Person = props => {
                     crop="thumb"
                 />
             </Image>
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', fontFamily: 'Jost' }}>
                 <h4
                     style={{
                         fontWeight: '600',

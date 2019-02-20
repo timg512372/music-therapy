@@ -51,15 +51,6 @@
     "scripts": {
         "dev": "NODE_ENV=development node server.js",
         "build": "next build",
-        "start": "NODE_ENV=production node server.js ",
-        "install": "yarn build-all",
-        "next": "yarn build-firebase && cd \"app\" && yarn && yarn dev",
-        "preserve": "yarn build-all",
-        "serve": "firebase serve",
-        "predeploy": "yarn build-all",
-        "deploy": "firebase deploy",
-        "build-all": "yarn build-next && yarn build-firebase",
-        "build-next": "cd \"src/app\" && yarn && yarn build",
-        "build-firebase": "cd \"src/functions\" && yarn"
+        "start": "NODE_ENV=production node server.js "
     }
 }
