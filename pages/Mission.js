@@ -7,7 +7,7 @@ import Header from '../components/Header';
 class Mission extends Component {
     render() {
         return (
-            <div style={{ margin: '5vh' }}>
+            <div style={{ margin: '3vw' }}>
                 <NextSeo
                     config={{
                         title: `Mission — Music To Heal`,
@@ -24,13 +24,12 @@ class Mission extends Component {
                                 children: (
                                     <div
                                         style={{
-                                            width: '100%',
-                                            height: '100%'
+                                            width: '100%'
                                         }}
                                     >
                                         <img
                                             src="/static/aboutus.jpg"
-                                            style={{ width: '100%', height: '100%' }}
+                                            style={{ width: '100%' }}
                                             alt="some sample"
                                         />
                                     </div>
@@ -47,7 +46,7 @@ class Mission extends Component {
                                             justifyContent: 'start',
                                             width: '98.7%',
                                             textAlign: 'center',
-                                            margin: '2vh 0 0 10px'
+                                            margin: '1.2vw 0 0 10px'
                                         }}
                                         className="heading"
                                     >
@@ -56,7 +55,7 @@ class Mission extends Component {
                                         <div
                                             style={{
                                                 color: '#ffffff',
-                                                margin: '18vh 0px 20px 0px',
+                                                margin: '10vw 0px 20px 0px',
                                                 letterSpacing: '0.1em',
                                                 fontFamily: 'Jost',
                                                 fontSize: '190%',
@@ -72,7 +71,7 @@ class Mission extends Component {
                             }
                         ]}
                         style={{
-                            height: '90vh'
+                            height: '56.5vw'
                         }}
                     />
 

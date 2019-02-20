@@ -7,6 +7,7 @@ routes.add('/group', 'Group');
 routes.add('/gallery', 'Gallery');
 routes.add('/contact', 'Contact');
 routes.add('/blog', 'Blog');
+routes.add('/post/:id', 'Post');
 routes.add('/mission', 'Mission');
 routes.add('/admin', 'Admin');
 

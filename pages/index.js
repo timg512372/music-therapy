@@ -228,22 +228,17 @@ class LandingPage extends Component {
         });
 
         return (
-            <div style={{ margin: '5vh' }}>
+            <div style={{ margin: '3vw' }}>
                 <title> Music To Heal </title>
                 <ParallaxProvider>
                     <ParallaxBanner
                         layers={[
                             {
                                 children: (
-                                    <div
-                                        style={{
-                                            width: '100%',
-                                            height: '100%'
-                                        }}
-                                    >
+                                    <div style={{ width: '100%' }}>
                                         <img
                                             src="/static/sample.jpg"
-                                            style={{ width: '100%', height: '100%' }}
+                                            style={{ width: '100%' }}
                                             alt="some sample"
                                         />
                                     </div>
@@ -260,7 +255,7 @@ class LandingPage extends Component {
                                             justifyContent: 'start',
                                             width: '98.7%',
                                             textAlign: 'center',
-                                            margin: '2vh 0 0 10px'
+                                            margin: '1.2vw 0 0 10px'
                                         }}
                                         className="heading"
                                     >
@@ -269,7 +264,7 @@ class LandingPage extends Component {
                                         <div
                                             style={{
                                                 color: '#ffffff',
-                                                margin: '27vh 0px 20px 0px',
+                                                margin: '15vw 0px 20px 0px',
                                                 letterSpacing: '0.1em',
                                                 fontFamily: 'Jost',
                                                 fontSize: '190%',
@@ -296,7 +291,7 @@ class LandingPage extends Component {
                             }
                         ]}
                         style={{
-                            height: '90vh'
+                            height: '56.5vw'
                         }}
                     />
 
@@ -323,7 +318,7 @@ class LandingPage extends Component {
                                             justifyContent: 'start',
                                             width: '98.7%',
                                             textAlign: 'center',
-                                            margin: '6vw 0 0 10px'
+                                            margin: '10vw 0 0 10px'
                                         }}
                                     >
                                         <div

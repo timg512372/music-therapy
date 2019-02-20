@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import { connect } from 'react-redux';
 import { getGroup } from '../redux/actions';
-import { Image, Transformation } from 'cloudinary-react';
 import * as types from '../redux/types.js';
 import NextSeo from 'next-seo';
 import Header from '../components/Header';
@@ -96,7 +95,7 @@ class Contact extends Component {
                     <Header page="" />
                 </div>
 
-                <h2 style={{ textAlign: 'center', marginTop: '30vh 0 30vh 0' }}>Contact Us</h2>
+                <h2 style={{ textAlign: 'center', margin: '2vh 0 6vh 0' }}>Contact Us</h2>
                 <form
                     action="https://formspree.io/20chunga@sagehillschool.org"
                     method="POST"
@@ -144,48 +143,8 @@ class Contact extends Component {
                             onChange={event => this.setState({ message: event.target.value })}
                         />
                     </FormField>
-
-                    {/* <input
-                        style={
-                            {
-                                backgroundColor: '#2B1B76',
-                                color: '#ffffff',
-                                border: 'none',
-                                borderRadius: 4,
-                                cursor: 'pointer' ,
-                                fontWeight: 'lighter',
-                                fontSize: 20,
-                                padding: '10px 20px',
-                                marginTop: 20
-                            } //Should have been avenir-book
-                        }
-                        type="submit"
-                        value="Send"
-                    /> */}
                 </form>
                 {this.renderButtons()}
-                {/* <Player
-                    playsInline
-                    poster="/static/video.jpg"
-                    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-                    width={50}
-                    fluid={false}
-                    preload="auto"
-                    muted={true}
-                    autoPlay={true}
-                    ref="player"
-                /> */}
-                {/* <ReactPlayer
-                    url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                    playing
-                    controls={false}
-                    muted
-                    config={{
-                        youtube: {
-                            playerVars: { showinfo: 0, controls: 0 }
-                        }
-                    }}
-                /> */}
             </div>
         );
     }

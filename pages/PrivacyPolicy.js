@@ -7,7 +7,7 @@ class PrivacyPolicy extends Component {
     render() {
         return (
             <React.Fragment>
-                <div style={{ width: '100vw', backgroundColor: '#FFDDFF', paddingLeft: '3.2vw' }}>
+                <div style={{ width: '100vw', paddingLeft: '3.2vw' }}>
                     <NextSeo
                         config={{
                             title: `Privacy Policy — Music To Heal`,
