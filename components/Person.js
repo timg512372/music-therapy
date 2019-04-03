@@ -40,12 +40,12 @@ const Person = props => {
                     {props.name}
                 </h4>
                 {props.role ? <h5 style={{ marginTop: '-10px' }}> {props.role} </h5> : null}
-                {/* {props.role && !props.horizontal ? (
+                {props.role && !props.horizontal ? (
                     <Button plain={true} onClick={props.onClick} style={{ marginTop: '-15px' }}>
                         {' '}
                         View Bio{' '}
                     </Button>
-                ) : null} */}
+                ) : null}
             </div>
         </div>
     );

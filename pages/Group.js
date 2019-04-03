@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
-//import * as admin from 'firebase-admin';
+
 import { connect } from 'react-redux';
-import { Image, Transformation } from 'cloudinary-react';
-import anime from 'animejs';
-import Transition from 'react-transition-group/Transition';
 import NextSeo from 'next-seo';
 
 import { getGroup } from '../redux/actions';
 import * as types from '../redux/types.js';
 import Person from '../components/Person';
 import BioModal from '../components/BioModal';
-import Popover from 'react-simple-popover';
 import Header from '../components/Header';
 
 class Group extends Component {
@@ -67,7 +62,7 @@ class Group extends Component {
     }
 
     state = {
-        dropdown: false
+        profile: ''
     };
 
     renderLeadership = () => {
@@ -80,16 +75,13 @@ class Group extends Component {
         try {
             const leaders = this.props.leadership.map(person => {
                 return (
-                    <div ref="target" backgroundColor="yellow" height="2vh" width="5vw">
-                        <Person
-                            key={person.name}
-                            src={person.src}
-                            name={person.name}
-                            role={person.role}
-                            onClick={() => this.setState({ dropdown: !this.state.dropdown })}
-                        />
-                        <h4>{person.bio}</h4>
-                    </div>
+                    <Person
+                        key={person.name}
+                        src={person.src}
+                        name={person.name}
+                        role={person.role}
+                        onClick={() => this.setState({ profile: person })}
+                    />
                 );
             });
 
@@ -142,7 +134,13 @@ class Group extends Component {
                 <div style={{ margin: '0% 15% 0% 15%' }}>
                     <h2 style={{ textAlign: 'center', fontWeight: '300' }}> Meet our Group </h2>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'space-around'
+                        }}
+                    >
                         {this.renderLeadership()}
                     </div>
 
@@ -164,6 +162,13 @@ class Group extends Component {
                     >
                         {this.renderStudent()}
                     </div>
+                </div>
+                <div>
+                    <BioModal
+                        show={this.state.profile !== ''}
+                        onToggleModal={() => this.setState({ profile: '' })}
+                        person={this.state.profile}
+                    />
                 </div>
             </div>
         );

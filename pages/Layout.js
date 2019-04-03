@@ -47,7 +47,7 @@ class Layout extends Component {
                         <Paragraph margin="none">© 2019 Sage Hill Music Therapy Club</Paragraph>
                         <Anchor href="/privacy-policy">Privacy Policy</Anchor>
                         <Anchor href="/contact">Contact</Anchor>
-                        <Anchor href="/">About</Anchor>
+                        <Anchor href="/mission">About</Anchor>
                     </Box>
                 </div>
             </Footer>

@@ -127,68 +127,6 @@ class LandingPage extends Component {
         );
     };
 
-    renderAccordian = () => {
-        return (
-            <Accordion
-                style={{
-                    fontWeight: '400',
-                    margin: '0 20% 0 20%',
-                    borderWidth: '0px',
-                    width: '60%',
-                    backgroundColor: '#FAFAFA'
-                }}
-            >
-                <AccordionPanel
-                    heading="Our Process"
-                    style={{
-                        borderWidth: '0px',
-                        width: '100%',
-                        backgroundColor: 'green'
-                    }}
-                >
-                    <div style={styles.dropdown}>
-                        We receive pictures and measurements of our recipients’ arms, and we use
-                        that information to model them a custom hand to maximize the hand’s
-                        effectiveness and comfort. We can also accommodate for color and design
-                        requests. We then print each hand in many parts. After that we carefully
-                        assemble them and ship them to our recipients.
-                    </div>
-                </AccordionPanel>
-                <AccordionPanel heading="Who's making the hands?">
-                    <div style={styles.dropdown}>
-                        We are a dedicated group of students from{' '}
-                        <a
-                            href="https://www.sagehillschool.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Sage Hill School
-                        </a>{' '}
-                        in Southern California who trying to make a difference. You can learn more
-                        about our team <a href="/contact">here</a>.
-                    </div>
-                </AccordionPanel>
-                <AccordionPanel heading="Can I buy one?">
-                    <div style={styles.dropdown}>
-                        Nope. Sorry, we typically make hands for recipients who are either unable to
-                        afford or access traditional prosthesis. On a case by case basis, we will
-                        work with recipients who would like a hand under other circumstances, in
-                        particular, those who are within our geographic region.
-                    </div>
-                </AccordionPanel>
-                <AccordionPanel heading="How can I become a recipient?">
-                    <div style={styles.dropdown}>
-                        <a href="/contact">Reach out to us!</a> Tell us your story, and we would be
-                        glad to add you as a recipient. We typically make hands for recipients who
-                        are either unable to afford or access traditional prosthesis. On a case by
-                        case basis, we will work with recipients who would like a hand under other
-                        circumstances, in particular, those who are within our geographic region.
-                    </div>
-                </AccordionPanel>
-            </Accordion>
-        );
-    };
-
     renderNavLinks = () => {
         return navlinks.map(link => {
             return (
@@ -238,7 +176,10 @@ class LandingPage extends Component {
                                     <div style={{ width: '100%' }}>
                                         <img
                                             src="/static/sample.jpg"
-                                            style={{ width: '100%' }}
+                                            style={{
+                                                width: '94vw',
+                                                height: '58vw'
+                                            }}
                                             alt="some sample"
                                         />
                                     </div>
@@ -342,25 +283,28 @@ class LandingPage extends Component {
                                         >
                                             <div
                                                 style={{
-                                                    fontSize: '150%',
+                                                    fontSize: '200%',
                                                     fontFamily: 'Jost',
                                                     width: '30%',
-                                                    letterSpacing: '0.1em'
+                                                    letterSpacing: '0.1em',
+                                                    paddingLeft: '10%'
                                                 }}
                                             >
                                                 {' '}
-                                                Insert Tagline Here{' '}
+                                                Music To Heal{' '}
                                             </div>
-                                            <div style={{ width: '40%', textAlign: 'left' }}>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit, sed do eiusmod tempor incididunt ut labore et
-                                                dolore magna aliqua. Ut enim ad minim veniam, quis
-                                                nostrud exercitation ullamco laboris nisi ut aliquip
-                                                ex ea commodo consequat. Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore
-                                                eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                cupidatat non proident, sunt in culpa qui officia
-                                                deserunt mollit anim id est laborum.
+                                            <div
+                                                style={{
+                                                    width: '40%',
+                                                    textAlign: 'left',
+                                                    fontSize: '110%'
+                                                }}
+                                            >
+                                                Every month, our group of high school musicians meet
+                                                at the Genesis Alta Care Center, performing for
+                                                those who suffer from dementia and Alzheimers. We
+                                                hope to give back to the community through the power
+                                                of musical therapy.
                                             </div>
                                         </div>
                                     </div>
@@ -485,9 +429,9 @@ const styles = {
 };
 
 const navlinks = [
-    { src: '/static/links.jpg', href: '/mission', text: 'Our Mission' },
-    { src: '/static/links.jpg', href: '/gallery', text: 'Gallery' },
-    { src: '/static/links.jpg', href: '/group', text: 'Members' }
+    { src: '/static/note.png', href: '/mission', text: 'Our Mission' },
+    { src: '/static/note.png', href: '/gallery', text: 'Gallery' },
+    { src: '/static/note.png', href: '/group', text: 'Members' }
 ];
 
 const mapStateToProps = state => {

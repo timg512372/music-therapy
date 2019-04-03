@@ -47,9 +47,8 @@ const BioModal = props => {
                                 boxShadow: 'true',
                                 padding: '5%',
                                 display: 'flex',
-                                alignItems: 'center',
                                 flexDirection: 'column',
-                                justifyContent: 'flex-start',
+                                alignItems: 'center',
                                 zIndex: 300
                             }}
                             onClick={event => event.preventDefault()}
@@ -58,10 +57,10 @@ const BioModal = props => {
                             <Person
                                 src={props.person.src}
                                 name={props.person.name}
-                                faculty
+                                role={props.person.role}
                                 horizontal
                             />
-                            <h6 style={{ marginTop: '4vh', fontSize: '2vh' }}>
+                            <h6 style={{ marginTop: '10vh', fontSize: '2vh' }}>
                                 &emsp;&ensp;
                                 {props.person.bio}{' '}
                             </h6>

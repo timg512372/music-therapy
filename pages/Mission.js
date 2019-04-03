@@ -29,7 +29,7 @@ class Mission extends Component {
                                     >
                                         <img
                                             src="/static/aboutus.jpg"
-                                            style={{ width: '100%' }}
+                                            style={{ width: '94vw', height: '58vw' }}
                                             alt="some sample"
                                         />
                                     </div>
@@ -62,7 +62,7 @@ class Mission extends Component {
                                                 fontWeight: '400'
                                             }}
                                         >
-                                            Our Mission
+                                            {/* Our Mission */}
                                         </div>
                                     </div>
                                 ),
@@ -111,7 +111,7 @@ class Mission extends Component {
                                                     opacity: '0.8'
                                                 }}
                                             >
-                                                who we are
+                                                Who We Are
                                             </div>
                                             <div
                                                 style={{
@@ -121,16 +121,13 @@ class Mission extends Component {
                                                     opacity: '0.8'
                                                 }}
                                             >
-                                                This is Music Therapy Lorem ipsum dolor sit etc etc
-                                                etc amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud
-                                                exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore
-                                                eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                cupidatat non proident, sunt in culpa qui officia
-                                                deserunt mollit anim id est laborum.
+                                                We are a group of high school students from Sage
+                                                Hill School ranging from 10th to 12th grade. Every
+                                                month, we meet at the Genesis Alta Care Center in
+                                                Garden Grove, CA. Performing for those who suffer
+                                                from dementia and Alzheimers, we perform a wide
+                                                range of musical genres to give back to the
+                                                community through the power of musical therapy.
                                             </div>
                                         </div>
                                         <div
@@ -152,7 +149,7 @@ class Mission extends Component {
                                                     opacity: '0.8'
                                                 }}
                                             >
-                                                why alzheimer's
+                                                Why Alzheimer's
                                             </div>
                                             <div
                                                 style={{
@@ -162,16 +159,17 @@ class Mission extends Component {
                                                     opacity: '0.8'
                                                 }}
                                             >
-                                                This is Music Therapy Lorem ipsum dolor sit etc etc
-                                                etc amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud
-                                                exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore
-                                                eu fugiat nulla pariatur. Excepteur sint occaecat
-                                                cupidatat non proident, sunt in culpa qui officia
-                                                deserunt mollit anim id est laborum.
+                                                Through countless clinical studies and researches,
+                                                music is proven to provide Alzheimer’s patients with
+                                                a form of therapy. According to Oliver Sacks, MD, a
+                                                noted neurologists, “people with Alzheimer’s and
+                                                various forms of dementia… are confused… agitated,
+                                                some lethargic, some have lost language. But all of
+                                                them, without exception, respond to music." We hope
+                                                that through our specialties in music, whether it be
+                                                instrumental or vocal, we will be able to provide
+                                                patients with a form of relief and most importantly,
+                                                bring joy to those who could really benefit from it.
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +179,7 @@ class Mission extends Component {
                             }
                         ]}
                         style={{
-                            height: '100vh'
+                            height: '80vh'
                         }}
                     />
                 </ParallaxProvider>
