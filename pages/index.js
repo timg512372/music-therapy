@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import * as types from '../redux/types';
 import posed from 'react-pose';
-import { Parallax, ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
-import Accordion from 'grommet/components/Accordion';
-import AccordionPanel from 'grommet/components/AccordionPanel';
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 import anime from 'animejs';
-import Transition from 'react-transition-group/Transition';
-import Particles from 'react-particles-js';
 import { connect } from 'react-redux';
-import Link from 'next/link';
 
 import Header from '../components/Header';
 
@@ -67,65 +62,6 @@ class LandingPage extends Component {
         //console.log('componentdidmount');
         this.setState({ isVisible: true });
     }
-
-    renderParticles = () => {
-        return (
-            <Transition onEnter={animateParticles} timeout={4000} in={this.state.isVisible}>
-                <Particles
-                    className="particles"
-                    style={{ height: '40vh', position: 'absolute', top: '80px' }}
-                    params={{
-                        particles: {
-                            number: {
-                                value: 100
-                            },
-                            size: {
-                                value: 4,
-                                random: true
-                            },
-                            color: {
-                                value: '#2cc99d'
-                            },
-                            move: {
-                                enable: true,
-                                direction: 'right',
-                                out_mode: 'out',
-                                bounce: false,
-                                speed: 3,
-                                random: false,
-                                attract: {
-                                    enable: false,
-                                    rotateX: 0,
-                                    rotateY: 0
-                                }
-                            },
-                            line_linked: {
-                                distance: 120,
-                                color: '#2cc99d',
-                                opacity: 0.9,
-                                width: 1.3
-                            }
-                        },
-                        interactivity: {
-                            events: {
-                                onhover: {
-                                    enable: true,
-                                    mode: 'repulse'
-                                }
-                            },
-                            modes: {
-                                repulse: {
-                                    distance: 100,
-                                    duration: 1
-                                }
-                            }
-                        },
-                        retina_detect: true
-                    }}
-                />
-            </Transition>
-        );
-    };
 
     renderNavLinks = () => {
         return navlinks.map(link => {

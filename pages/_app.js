@@ -26,14 +26,14 @@ if (!firebase.apps.length) {
 const DEFAULT_SEO = {
     title: 'Music To Heal - Rehabilitation Through Music',
     description:
-        'A student-run service group that uses 3D printing to make custom prosthetics for those in need. All of the prosthetics are made by hand using open-source designs in collaboration with E-Nable.',
+        'Every month, our group of high school musicians meet at the Genesis Alta Care Center, performing for those who suffer from dementia and Alzheimers. We hope to give back to the community through the power of musical therapy.',
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        url: 'https://www.musictoheal.org/',
+        url: 'https://sagehillmusictoheal.org/',
         title: 'Music To Heal - Rehabilitation Through Music',
         description:
-            'A student-run service group that uses 3D printing to make custom prosthetics for those in need. All of the prosthetics are made by hand using open-source designs in collaboration with E-Nable.',
+            'Every month, our group of high school musicians meet at the Genesis Alta Care Center, performing for those who suffer from dementia and Alzheimers. We hope to give back to the community through the power of musical therapy.',
         image: '/static/favicon.png',
         site_name: 'Music To Heal',
         imageWidth: 1200,
@@ -43,7 +43,7 @@ const DEFAULT_SEO = {
         title: 'Music To Heal - Rehabilitation Through Music',
         cardType: 'summary_large_image',
         description:
-            'A student-run service group that uses 3D printing to make custom prosthetics for those in need. All of the prosthetics are made by hand using open-source designs in collaboration with E-Nable.'
+            'Every month, our group of high school musicians meet at the Genesis Alta Care Center, performing for those who suffer from dementia and Alzheimers. We hope to give back to the community through the power of musical therapy.'
     }
 };
 
