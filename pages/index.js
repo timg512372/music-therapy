@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as types from '../redux/types';
-import posed from 'react-pose';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
-import anime from 'animejs';
 import { connect } from 'react-redux';
 
 import Header from '../components/Header';
@@ -19,47 +17,9 @@ class LandingPage extends Component {
             type: types.CHANGE_PAGE,
             payload: '~'
         });
-
-        const project = [];
-        req.firebaseServer
-            .database()
-            .ref('projects')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    project.push(child.key);
-                });
-            });
-
-        const links = [];
-        const archive = [];
-        await req.firebaseServer
-            .database()
-            .ref('recipients')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    if (child.val().archive == true) {
-                        archive.push(child.key);
-                    } else {
-                        links.push(child.key);
-                    }
-                });
-            });
-
-        store.dispatch({
-            type: types.GET_RECIPIENTS,
-            payload: { links, archive }
-        });
-
-        store.dispatch({
-            type: types.GET_PROJECTS,
-            payload: project
-        });
     }
 
     componentDidMount() {
-        //console.log('componentdidmount');
         this.setState({ isVisible: true });
     }
 
@@ -96,11 +56,6 @@ class LandingPage extends Component {
     };
 
     render() {
-        const Animation = posed.div({
-            visible: { opacity: 1 },
-            hidden: { opacity: 0 }
-        });
-
         return (
             <div style={{ margin: '3vw' }}>
                 <title> Music To Heal </title>
@@ -263,107 +218,6 @@ class LandingPage extends Component {
         );
     }
 }
-
-const Box = posed.button({
-    hoverable: true,
-    init: {
-        borderColor: '#FFFFFF',
-        color: '#ffffff',
-        backgroundColor: 'rgb(0,0,0,0)'
-    },
-    hover: {
-        //borderColor: '#000000',
-        color: '#000000',
-        backgroundColor: '#ffffff'
-    }
-});
-
-const animateParticles = particles => {
-    //console.log('particles');
-    return anime({
-        targets: particles,
-        delay: 500,
-        opacity: {
-            value: [0, 1]
-        },
-        easing: 'easeOutQuint',
-        duration: 3000
-    });
-};
-
-const animateMainheadingIn = mainheading => {
-    return anime({
-        targets: mainheading,
-        opacity: {
-            value: [0, 1]
-        },
-        filter: ['blur(7px)', 'blur(0px)'],
-        translateY: [500, 0],
-        rotate: {
-            value: [90, 0]
-        },
-        easing: 'easeOutQuint',
-        duration: 1000
-    });
-};
-
-const animateSubheadingIn = subheading => {
-    return anime({
-        targets: subheading,
-        opacity: {
-            value: [0, 1]
-        },
-        filter: ['blur(7px)', 'blur(0px)'],
-        scale: {
-            value: [10, 1]
-        },
-        easing: 'easeOutQuint',
-        duration: 800
-    });
-};
-
-const animatePrinterIn = printer => {
-    //console.log('something happened');
-    return anime({
-        targets: printer,
-        opacity: {
-            value: [0, 1]
-        },
-        filter: ['blur(7px)', 'blur(0px)'],
-        scale: {
-            value: 1.3
-        },
-        easing: 'easeOutQuint',
-        duration: 1800
-    });
-};
-
-const animateHeadingIn = heading => {
-    //console.log('something happened');
-    return anime({
-        targets: heading,
-        opacity: {
-            value: [0, 1]
-        },
-        filter: ['blur(7px)', 'blur(0px)'],
-        scale: {
-            value: 1.4,
-            duration: 1800
-        },
-        translateY: -15,
-        easing: 'easeOutQuart',
-        duration: 1900
-    });
-};
-
-const styles = {
-    dropdown: {
-        width: '100%',
-        textAlign: 'left',
-        margin: '10px 10px 0 20px'
-    }
-};
-
 const navlinks = [
     { src: '/static/note.png', href: '/mission', text: 'Our Mission' },
     { src: '/static/note.png', href: '/gallery', text: 'Gallery' },

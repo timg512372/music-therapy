@@ -10,6 +10,8 @@ export default class MyDocument extends Document {
             <html>
                 <Head>
                     <link rel="stylesheet" href="/_next/static/style.css" />
+                    <link rel="manifest" href="/static/manifest.json" />
+
                     <link rel="shortcut icon" type="image/png" href="/static/favicon.png" />
 
                     <link
@@ -24,11 +26,6 @@ export default class MyDocument extends Document {
                         charSet="utf-8"
                     />
                     <script src="//widget.cloudinary.com/global/all.js" type="text/javascript" />
-
-                    {/* <meta
-                        name="google-site-verification"
-                        content="ezst5eCOpUnm7J4ltiOHnEnjC797eCw7t1hC1NZSOLg"
-                    /> */}
                 </Head>
                 <style jsx global>{`
                     body {

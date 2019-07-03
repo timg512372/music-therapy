@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import firebase from 'firebase/app';
+import 'firebase/database';
 import { connect } from 'react-redux';
 import NextSeo from 'next-seo';
 
-import { getGroup } from '../redux/actions';
 import * as types from '../redux/types.js';
 import Person from '../components/Person';
 import BioModal from '../components/BioModal';
@@ -17,8 +17,9 @@ class Group extends Component {
         });
 
         const leadership = [];
-        req.firebaseServer
-            .database()
+        let db = firebase;
+
+        db.database()
             .ref('leadership')
             .once('value')
             .then(datasnapshot => {
@@ -36,7 +37,7 @@ class Group extends Component {
             });
 
         const reformat = [];
-        await req.firebaseServer
+        await db
             .database()
             .ref('group')
             .once('value')
@@ -184,5 +185,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getGroup }
+    null
 )(Group);

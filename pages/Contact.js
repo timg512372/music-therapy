@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import { connect } from 'react-redux';
-import { getGroup } from '../redux/actions';
 import * as types from '../redux/types.js';
 import NextSeo from 'next-seo';
 import Header from '../components/Header';
@@ -11,43 +10,10 @@ import Button from 'grommet/components/Button';
 
 class Contact extends Component {
     static async getInitialProps({ req, query, store }) {
-        // store.dispatch({
-        //     type: types.CHANGE_PAGE,
-        //     payload: 'c'
-        // });
-        // const project = [];
-        // req.firebaseServer
-        //     .database()
-        //     .ref('projects')
-        //     .once('value')
-        //     .then(datasnapshot => {
-        //         datasnapshot.forEach(child => {
-        //             project.push(child.key);
-        //         });
-        //     });
-        // const links = [];
-        // const archive = [];
-        // await req.firebaseServer
-        //     .database()
-        //     .ref('recipients')
-        //     .once('value')
-        //     .then(datasnapshot => {
-        //         datasnapshot.forEach(child => {
-        //             if (child.val().archive == true) {
-        //                 archive.push(child.key);
-        //             } else {
-        //                 links.push(child.key);
-        //             }
-        //         });
-        //     });
-        // store.dispatch({
-        //     type: types.GET_RECIPIENTS,
-        //     payload: { links, archive }
-        // });
-        // store.dispatch({
-        //     type: types.GET_PROJECTS,
-        //     payload: project
-        // });
+        store.dispatch({
+            type: types.CHANGE_PAGE,
+            payload: 'c'
+        });
     }
 
     state = {
@@ -170,5 +136,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getGroup }
+    null
 )(Contact);

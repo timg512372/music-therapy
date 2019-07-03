@@ -1,6 +1,4 @@
 import React from 'react';
-import { Image, Transformation } from 'cloudinary-react';
-import anime from 'animejs';
 import Transition from 'react-transition-group/Transition';
 
 import Person from './Person';
@@ -34,68 +32,41 @@ const BioModal = props => {
                         left: '0',
                         top: '0'
                     }}
-                    //onClick={props.onToggleModal}
                 >
-                    <Transition onEnter={modalEnter} timeout={0} in={props.show} onExit={modalExit}>
-                        <div
-                            style={{
-                                height: '70vh',
-                                width: '70vw',
-                                marginTop: 150 + window.scrollY + 'px',
-                                backgroundColor: 'white',
-                                borderRadius: '20px',
-                                boxShadow: 'true',
-                                padding: '5%',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                zIndex: 300
-                            }}
-                            onClick={event => event.preventDefault()}
-                            className="biomodal"
-                        >
-                            <Person
-                                src={props.person.src}
-                                name={props.person.name}
-                                role={props.person.role}
-                                horizontal
-                            />
-                            <h6 style={{ marginTop: '10vh', fontSize: '2vh' }}>
-                                &emsp;&ensp;
-                                {props.person.bio}{' '}
-                            </h6>
-                        </div>
-                    </Transition>
+                    <div
+                        style={{
+                            height: '70vh',
+                            width: '70vw',
+                            marginTop: 150 + window.scrollY + 'px',
+                            backgroundColor: 'white',
+                            borderRadius: '20px',
+                            boxShadow: 'true',
+                            padding: '5%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            zIndex: 300
+                        }}
+                        onClick={event => event.preventDefault()}
+                        className="biomodal"
+                    >
+                        <Person
+                            src={props.person.src}
+                            name={props.person.name}
+                            role={props.person.role}
+                            horizontal
+                        />
+                        <h6 style={{ marginTop: '10vh', fontSize: '1vw' }}>
+                            &emsp;&ensp;
+                            {props.person.bio}{' '}
+                        </h6>
+                    </div>
                 </div>
             </React.Fragment>
         );
     }
 
     return null;
-};
-
-const modalEnter = biomodal => {
-    console.log('in');
-    return anime({
-        // targets: biomodal,
-        // opacity: {
-        //     value: [0, 1]
-        // },
-        // easing: 'easeOutQuint',
-        // duration: 1000
-    });
-};
-
-const modalExit = biomodal => {
-    console.log('out');
-    return anime({
-        // targets: biomodal,
-        // opacity: {
-        //     value: [1, 0]
-        // },
-        // easing: 'easeOutQuint',
-        // duration: 1000
-    });
 };
 
 export default BioModal;

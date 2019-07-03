@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import { connect } from 'react-redux';
 import { Image, Transformation } from 'cloudinary-react';
 import NextSeo from 'next-seo';
 
-import { getGroup } from '../redux/actions';
-import serviceAccount from '../firebasekeys.json';
+//import initFirebase from '../firebase';
 import * as types from '../redux/types.js';
 import ImageModal from '../components/ImageModal';
 import Header from '../components/Header';
@@ -22,39 +22,7 @@ class Gallery extends Component {
             payload: 'g'
         });
 
-        let db = null;
-        if (isServer) {
-            db = req.firebaseServer;
-        } else {
-            db = firebase;
-        }
-
-        const project = [];
-        req.firebaseServer
-            .database()
-            .ref('projects')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    project.push(child.key);
-                });
-            });
-
-        const links = [];
-        const archive = [];
-        req.firebaseServer
-            .database()
-            .ref('recipients')
-            .once('value')
-            .then(datasnapshot => {
-                datasnapshot.forEach(child => {
-                    if (child.val().archive == true) {
-                        archive.push(child.key);
-                    } else {
-                        links.push(child.key);
-                    }
-                });
-            });
+        let db = firebase;
 
         const pictures = [];
         await db
@@ -70,16 +38,6 @@ class Gallery extends Component {
         store.dispatch({
             type: types.GET_GALLERY,
             payload: pictures.reverse()
-        });
-
-        store.dispatch({
-            type: types.GET_RECIPIENTS,
-            payload: { links, archive }
-        });
-
-        store.dispatch({
-            type: types.GET_PROJECTS,
-            payload: project
         });
     }
 
@@ -231,5 +189,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { getGroup }
+    null
 )(Gallery);

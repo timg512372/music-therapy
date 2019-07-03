@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import NextSeo from 'next-seo';
 import Button from 'grommet/components/Button';
+import Link from 'next/link';
 
 class Blog extends Component {
     render() {
@@ -62,17 +63,9 @@ class Blog extends Component {
                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             <br />
                             <br />
-                            <Button
-                                style={{
-                                    borderRadius: '0px',
-                                    borderWidth: '1px',
-                                    fontFamily: 'Jost',
-                                    fontWeight: 200,
-                                    opacity: '1'
-                                }}
-                                label="View Blog Post"
-                                href="/post/1"
-                            />
+                            <Link href="/post/[id]" as="/post/first">
+                                <a>View Post</a>
+                            </Link>
                         </div>
                     </div>
                     <div
@@ -113,17 +106,9 @@ class Blog extends Component {
                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             <br />
                             <br />
-                            <Button
-                                style={{
-                                    borderRadius: '0px',
-                                    borderWidth: '1px',
-                                    fontFamily: 'Jost',
-                                    fontWeight: 200,
-                                    opacity: '1'
-                                }}
-                                label="View Blog Post"
-                                href="/post/1"
-                            />
+                            <Link href="/post/[id]" as="/post/second">
+                                <a>View Post</a>
+                            </Link>
                         </div>
                     </div>
                 </div>

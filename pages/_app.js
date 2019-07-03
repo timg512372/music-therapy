@@ -2,17 +2,16 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
-//import * as firebase from 'firebase';
 import firebase from 'firebase/app';
+import 'firebase/database';
+
 import NextSeo from 'next-seo';
 
 import '../styles.scss';
 import { initStore } from '../redux/store';
 import Layout from './Layout';
-import * as types from '../redux/types';
 
 if (!firebase.apps.length) {
-    //console.log('initializing firebase');
     firebase.initializeApp({
         apiKey: 'AIzaSyDUgDq171aHYxrL11LksOAz4UY5kZfUbKM',
         authDomain: 'music-therapy-c96cc.firebaseapp.com',

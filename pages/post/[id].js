@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NextSeo from 'next-seo';
-import Header from '../components/Header';
+import Header from '../../components/Header';
 
 class Post extends Component {
     render() {
@@ -8,10 +8,10 @@ class Post extends Component {
             <div style={{ width: '100%' }}>
                 <NextSeo
                     config={{
-                        title: 'Contact — Music To Heal',
-                        twitter: { title: 'Contact — Music To Heal' },
+                        title: 'Blog — Music To Heal',
+                        twitter: { title: 'Blog — Music To Heal' },
                         openGraph: {
-                            title: 'Contact — Music To Heal'
+                            title: 'Blog — Music To Heal'
                         }
                     }}
                 />

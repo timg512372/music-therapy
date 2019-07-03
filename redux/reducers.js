@@ -9,7 +9,8 @@ const INITIAL_STATE = {
     recipients: ['Internal Server Error!'],
     selectedRecipient: {},
     projects: ['Internal Server Error!'],
-    selectedProject: {}
+    selectedProject: {},
+    firebase: ''
 };
 
 export default function(state = INITIAL_STATE, action) {

@@ -7,3 +7,4 @@ export const GET_RECIPIENTS = 'get-recipients';
 export const GET_SELECTED_RECIPIENT = 'get-selected-recipient';
 export const GET_PROJECTS = 'get-projects';
 export const GET_SELECTED_PROJECT = 'get-selected-project';
+export const INIT_FIREBASE = 'init-firebase';
