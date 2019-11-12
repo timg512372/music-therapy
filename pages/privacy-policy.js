@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NextSeo from 'next-seo';
 import Header from '../components/Header';
-import * as types from '../redux/types.js';
 
 class PrivacyPolicy extends Component {
     render() {
@@ -18,7 +17,13 @@ class PrivacyPolicy extends Component {
                         }}
                     />
 
-                    <Header />
+                    {this.props.desktop ? (
+                        <div style={{ margin: '-2vh 8vh 0 4vh' }}>
+                            <Header page="" />
+                        </div>
+                    ) : (
+                        <div style={{ height: '4vh' }} />
+                    )}
                 </div>
                 <div style={{ margin: '0 15% 0 15%' }}>
                     <h2 style={{ textAlign: 'center' }}> Privacy Policy </h2>

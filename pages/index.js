@@ -28,11 +28,11 @@ class LandingPage extends Component {
             return (
                 <div
                     style={{
-                        height: '22vw',
-                        width: '22vw',
+                        height: this.props.desktop ? '22vw' : '80vw',
+                        width: this.props.desktop ? '22vw' : '80vw',
                         backgroundImage: `url(${link.src})`,
                         backgroundPosition: 'center',
-                        backgroundSize: '22vw',
+                        backgroundSize: this.props.desktop ? '22vw' : '80vw',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -63,17 +63,28 @@ class LandingPage extends Component {
                     <ParallaxBanner
                         layers={[
                             {
-                                children: (
+                                children: this.props.desktop ? (
                                     <div style={{ width: '100%' }}>
                                         <img
                                             src="/static/sample.jpg"
                                             style={{
                                                 width: '94vw',
-                                                height: '58vw'
+                                                height: '58vw',
+                                                overflow: 'hidden'
                                             }}
                                             alt="some sample"
                                         />
                                     </div>
+                                ) : (
+                                    <div
+                                        style={{
+                                            width: '100%',
+                                            backgroundImage: "url('/static/sample.jpg')",
+                                            backgroundrepeat: 'no-repeat',
+                                            backgroundSize: 'cover',
+                                            height: '100vh'
+                                        }}
+                                    ></div>
                                 ),
                                 amount: 0.1,
                                 slowerScrollRate: true
@@ -91,24 +102,29 @@ class LandingPage extends Component {
                                         }}
                                         className="heading"
                                     >
-                                        <Header page={this.props.page} />
+                                        {this.props.desktop ? (
+                                            <Header page={this.props.page} />
+                                        ) : null}
 
                                         <div
                                             style={{
                                                 color: '#ffffff',
-                                                margin: '15vw 0px 20px 0px',
+                                                margin: this.props.desktop
+                                                    ? '15vw 0px 20px 0px'
+                                                    : '30vh 0px 20px 0px',
                                                 letterSpacing: '0.1em',
                                                 fontFamily: 'Jost',
-                                                fontSize: '190%',
+                                                fontSize: this.props.desktop ? '190%' : '120%',
                                                 fontWeight: '400'
                                             }}
                                         >
-                                            sage hill school / newport coast, ca
+                                            sage hill school {this.props.desktop ? '/' : <br />}{' '}
+                                            newport coast, ca
                                         </div>
                                         <div
                                             style={{
-                                                fontSize: '450%',
-                                                fontWeight: '900',
+                                                fontSize: this.props.desktop ? '450%' : '300%',
+                                                fontWeight: this.props.desktop ? '900' : '800',
                                                 color: '#ffffff',
                                                 lineHeight: '100%',
                                                 letterSpacing: '0.04em'
@@ -123,7 +139,7 @@ class LandingPage extends Component {
                             }
                         ]}
                         style={{
-                            height: '56.5vw'
+                            height: this.props.desktop ? '56.5vw' : '100vh'
                         }}
                     />
 
@@ -150,14 +166,19 @@ class LandingPage extends Component {
                                             justifyContent: 'start',
                                             width: '98.7%',
                                             textAlign: 'center',
-                                            margin: '10vw 0 0 10px'
+                                            margin: this.props.desktop
+                                                ? '10vw 0 0 10px'
+                                                : '12vh 0 0 10px'
                                         }}
                                     >
                                         <div
                                             style={{
                                                 display: 'flex',
-                                                flexDirection: 'row',
-                                                justifyContent: 'center'
+                                                flexDirection: this.props.desktop
+                                                    ? 'row'
+                                                    : 'column',
+                                                justifyContent: 'center',
+                                                alignItems: 'center'
                                             }}
                                         >
                                             {this.renderNavLinks()}
@@ -165,7 +186,9 @@ class LandingPage extends Component {
                                         <div
                                             style={{
                                                 display: 'flex',
-                                                flexDirection: 'row',
+                                                flexDirection: this.props.desktop
+                                                    ? 'row'
+                                                    : 'column',
                                                 justifyContent: 'space-around',
                                                 alignItems: 'center',
                                                 marginTop: '10vw',
@@ -176,9 +199,9 @@ class LandingPage extends Component {
                                                 style={{
                                                     fontSize: '200%',
                                                     fontFamily: 'Jost',
-                                                    width: '30%',
+                                                    width: this.props.desktop ? '30%' : '90%',
                                                     letterSpacing: '0.1em',
-                                                    paddingLeft: '10%'
+                                                    paddingLeft: this.props.desktop ? '10%' : '0'
                                                 }}
                                             >
                                                 {' '}
@@ -186,7 +209,7 @@ class LandingPage extends Component {
                                             </div>
                                             <div
                                                 style={{
-                                                    width: '40%',
+                                                    width: this.props.desktop ? '40%' : '90%',
                                                     textAlign: 'left',
                                                     fontSize: '110%'
                                                 }}
@@ -205,7 +228,7 @@ class LandingPage extends Component {
                             }
                         ]}
                         style={{
-                            height: '90vh'
+                            height: this.props.desktop ? '90vh' : '170vh'
                         }}
                     />
                 </ParallaxProvider>

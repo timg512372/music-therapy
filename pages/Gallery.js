@@ -127,9 +127,13 @@ class Gallery extends Component {
                         }
                     }}
                 />
-                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
-                    <Header page="g" />
-                </div>
+                {this.props.desktop ? (
+                    <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                        <Header page="g" />
+                    </div>
+                ) : (
+                    <div style={{ height: '4vh' }} />
+                )}
 
                 <h2 style={{ textAlign: 'center' }}>Photo Gallery</h2>
 

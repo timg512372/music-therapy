@@ -4,12 +4,12 @@ import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import firebase from 'firebase/app';
 import 'firebase/database';
-
 import NextSeo from 'next-seo';
 
 import '../styles.scss';
 import { initStore } from '../redux/store';
 import Layout from './Layout';
+var parser = require('ua-parser-js');
 
 if (!firebase.apps.length) {
     firebase.initializeApp({
@@ -55,8 +55,12 @@ export default withRedux(initStore)(
         static async getInitialProps({ Component, ctx, req, query, store }) {
             // store.dispatch({ type: types.GET_RECIPIENTS, payload: 'help' });
 
+            const ua = parser(ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent);
             return {
-                pageProps: Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+                pageProps: {
+                    ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+                    desktop: ua.device.type != 'mobile'
+                }
             };
         }
 
@@ -72,7 +76,7 @@ export default withRedux(initStore)(
                 <Container>
                     <NextSeo config={DEFAULT_SEO} />
                     <Provider store={store}>
-                        <Layout>
+                        <Layout desktop={pageProps.desktop}>
                             <Component {...pageProps} />
                         </Layout>
                     </Provider>

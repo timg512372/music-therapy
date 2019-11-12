@@ -119,9 +119,13 @@ class Group extends Component {
                     width: '100%'
                 }}
             >
-                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
-                    <Header page="e" />
-                </div>
+                {this.props.desktop ? (
+                    <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                        <Header page="e" />
+                    </div>
+                ) : (
+                    <div style={{ height: '4vh' }} />
+                )}
 
                 <NextSeo
                     config={{
@@ -139,7 +143,8 @@ class Group extends Component {
                         style={{
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: 'space-around'
+                            justifyContent: 'space-around',
+                            flexWrap: 'wrap'
                         }}
                     >
                         {this.renderLeadership()}
@@ -169,6 +174,7 @@ class Group extends Component {
                         show={this.state.profile !== ''}
                         onToggleModal={() => this.setState({ profile: '' })}
                         person={this.state.profile}
+                        desktop={this.props.desktop}
                     />
                 </div>
             </div>

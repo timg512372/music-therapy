@@ -50,7 +50,13 @@ class Mission extends Component {
                                         }}
                                         className="heading"
                                     >
-                                        <Header page="h" />
+                                        {this.props.desktop ? (
+                                            <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                                                <Header page="h" />
+                                            </div>
+                                        ) : (
+                                            <div style={{ height: '4vh' }} />
+                                        )}
 
                                         <div
                                             style={{
@@ -95,15 +101,18 @@ class Mission extends Component {
                                         <div
                                             style={{
                                                 display: 'flex',
-                                                flexDirection: 'row',
+                                                flexDirection: this.props.desktop
+                                                    ? 'row'
+                                                    : 'column',
                                                 justifyContent: 'center',
+                                                alignItems: 'center',
                                                 width: '100%',
                                                 marginTop: '20vh'
                                             }}
                                         >
                                             <div
                                                 style={{
-                                                    width: '40%',
+                                                    width: this.props.desktop ? '40%' : '90%',
                                                     textAlign: 'center',
                                                     fontSize: '200%',
                                                     fontFamily: 'Jost',
@@ -115,7 +124,7 @@ class Mission extends Component {
                                             </div>
                                             <div
                                                 style={{
-                                                    width: '40%',
+                                                    width: this.props.desktop ? '40%' : '90%',
                                                     fontSize: '110%',
                                                     lineHeight: '150%',
                                                     opacity: '0.8'
@@ -133,15 +142,18 @@ class Mission extends Component {
                                         <div
                                             style={{
                                                 display: 'flex',
-                                                flexDirection: 'row',
+                                                flexDirection: this.props.desktop
+                                                    ? 'row'
+                                                    : 'column',
                                                 justifyContent: 'center',
+                                                alignItems: 'center',
                                                 width: '100%',
-                                                marginTop: '10vh'
+                                                marginTop: '20vh'
                                             }}
                                         >
                                             <div
                                                 style={{
-                                                    width: '40%',
+                                                    width: this.props.desktop ? '40%' : '90%',
                                                     textAlign: 'center',
                                                     fontSize: '200%',
                                                     fontFamily: 'Jost',
@@ -153,7 +165,7 @@ class Mission extends Component {
                                             </div>
                                             <div
                                                 style={{
-                                                    width: '40%',
+                                                    width: this.props.desktop ? '40%' : '90%',
                                                     fontSize: '110%',
                                                     lineHeight: '150%',
                                                     opacity: '0.8'
@@ -179,7 +191,7 @@ class Mission extends Component {
                             }
                         ]}
                         style={{
-                            height: '80vh'
+                            height: this.props.desktop ? '80vh' : '140vh'
                         }}
                     />
                 </ParallaxProvider>

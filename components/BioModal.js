@@ -36,7 +36,7 @@ const BioModal = props => {
                     <div
                         style={{
                             height: '70vh',
-                            width: '70vw',
+                            width: props.desktop ? '70vw' : '90vw',
                             marginTop: 150 + window.scrollY + 'px',
                             backgroundColor: 'white',
                             borderRadius: '20px',
@@ -54,9 +54,15 @@ const BioModal = props => {
                             src={props.person.src}
                             name={props.person.name}
                             role={props.person.role}
-                            horizontal
+                            horizontal={props.desktop}
+                            noBio
                         />
-                        <h6 style={{ marginTop: '10vh', fontSize: '1vw' }}>
+                        <h6
+                            style={{
+                                marginTop: props.desktop ? '5vh' : '0vh',
+                                fontSize: props.desktop ? '1vw' : '1vh'
+                            }}
+                        >
                             &emsp;&ensp;
                             {props.person.bio}{' '}
                         </h6>

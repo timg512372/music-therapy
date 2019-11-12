@@ -4,12 +4,11 @@ import Title from 'grommet/components/Title';
 import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import Anchor from 'grommet/components/Anchor';
-import Menu from 'grommet/components/Menu';
-import Header from 'grommet/components/Header';
 import Article from 'grommet/components/Article';
 import { connect } from 'react-redux';
-
 import Link from 'next/link';
+
+import MobileHeader from '../components/MobileHeader';
 import '../styles.scss';
 
 import React, { Component } from 'react';
@@ -43,7 +42,11 @@ class Layout extends Component {
                         <s />
                         Sage Hill Music Therapy Club
                     </Title>
-                    <Box direction="row" align="center" pad={{ between: 'medium' }}>
+                    <Box
+                        direction={this.props.desktop ? 'row' : 'column'}
+                        align="center"
+                        pad={{ between: 'medium' }}
+                    >
                         <Paragraph margin="none">© 2019 Sage Hill Music Therapy Club</Paragraph>
                         <Anchor href="/privacy-policy">Privacy Policy</Anchor>
                         <Anchor href="/contact">Contact</Anchor>
@@ -64,8 +67,8 @@ class Layout extends Component {
                         backgroundColor: '#FAFAFA'
                     }}
                 >
+                    {this.props.desktop ? null : <MobileHeader />}
                     <div style={{ minHeight: '81vh' }}>{this.props.children}</div>
-
                     {this.renderFooter()}
                 </Article>
             </App>

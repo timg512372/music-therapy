@@ -31,7 +31,10 @@ class Contact extends Component {
                     form="form1"
                     value="Send"
                     accent
-                    style={{ margin: '20px 45% 0% 45%', width: '10%', ...styles.button }}
+                    style={{
+                        margin: this.props.desktop ? '20px 45% 0% 45%' : '20px 0 40px 0 ',
+                        ...styles.button
+                    }}
                 />
             );
         }
@@ -40,7 +43,10 @@ class Contact extends Component {
             <Button
                 label="Submit"
                 accent
-                style={{ margin: '20px 45% 0% 45%', width: '10%', ...styles.button }}
+                style={{
+                    margin: this.props.desktop ? '20px 45% 0% 45%' : '20px 0 40px 0 ',
+                    ...styles.button
+                }}
             />
         );
     }
@@ -58,9 +64,13 @@ class Contact extends Component {
                         }
                     }}
                 />
-                <div style={{ margin: '-2vh 6vh 0 6vh' }}>
-                    <Header page="" />
-                </div>
+                {this.props.desktop ? (
+                    <div style={{ margin: '-2vh 6vh 0 6vh' }}>
+                        <Header page="" />
+                    </div>
+                ) : (
+                    <div style={{ height: '4vh' }} />
+                )}
 
                 <h2 style={{ textAlign: 'center', margin: '2vh 0 6vh 0' }}>Contact Us</h2>
                 <form
@@ -70,7 +80,7 @@ class Contact extends Component {
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
-                        margin: '0 15% 0 15%'
+                        margin: this.props.desktop ? '0 15% 0 15%' : '0 5% 0 5%'
                     }}
                     id="form1"
                 >
@@ -113,7 +123,9 @@ class Contact extends Component {
                         />
                     </FormField>
                 </form>
-                {this.renderButtons()}
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                    {this.renderButtons()}
+                </div>
             </div>
         );
     }
@@ -121,6 +133,7 @@ class Contact extends Component {
 
 const styles = {
     button: {
+        width: '10%',
         borderRadius: '0px',
         borderWidth: '1px',
         fontFamily: 'Jost',
